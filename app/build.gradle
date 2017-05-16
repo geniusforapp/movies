@@ -63,6 +63,7 @@ dependencies {
 
     // Design
     compile 'com.robertlevonyan.view:MaterialChipView:1.0.1'
+    compile 'com.lapism:searchview:4.0'
 
 
     // Views Injector

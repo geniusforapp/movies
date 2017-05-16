@@ -53,6 +53,8 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
     public static MoviesFragment newInstance(String movies) {
         MoviesFragment moviesFragment = new MoviesFragment();
         moviesFragment.type = movies;
+        if (moviesFragment.itemFooterAdapter != null && moviesFragment.fastItemAdapter != null)
+            moviesFragment.endlessRecyclerOnScrollListener.resetPageCount();
         return moviesFragment;
     }
 

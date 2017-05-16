@@ -14,11 +14,11 @@ import io.codetail.animation.ViewAnimationUtils;
 public class AnimationsHelper {
 
 
-    public static void startAnimation(View myView) {
-        int cx = myView.getMeasuredWidth() / 2;
-        int cy = myView.getMeasuredHeight() / 2;
+    public static void startAnimation(View parent, View myView) {
+        int cx = parent.getMeasuredWidth() / 2;
+        int cy = parent.getMeasuredHeight() / 2;
         // get the final radius for the clipping circle
-        int finalRadius = Math.max(myView.getWidth(), myView.getHeight()) / 2;
+        int finalRadius = (int) Math.hypot(parent.getWidth(), parent.getHeight());
         // create the animator for this view (the start radius is zero)
         Animator anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, 0, finalRadius);
         // make the view visible and start the animation
@@ -26,18 +26,17 @@ public class AnimationsHelper {
         anim.start();
     }
 
-    public static void endAnimation(final View myView) {
+    public static void endAnimation(View parent, final View myView) {
 
         // get the center for the clipping circle
-        int cx = myView.getMeasuredWidth() / 2;
-        int cy = myView.getMeasuredHeight() / 2;
+        int cx = parent.getMeasuredWidth() / 2;
+        int cy = parent.getMeasuredHeight() / 2;
 
         // get the initial radius for the clipping circle
-        int initialRadius = myView.getWidth() / 2;
+        int initialRadius = parent.getWidth() / 2;
 
         // create the animation (the final radius is zero)
-        Animator anim =
-                ViewAnimationUtils.createCircularReveal(myView, cx, cy, initialRadius, 0);
+        Animator anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, initialRadius, 0);
 
         // make the view invisible when the animation is done
         anim.addListener(new AnimatorListenerAdapter() {
