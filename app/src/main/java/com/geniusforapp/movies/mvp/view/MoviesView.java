@@ -2,6 +2,7 @@ package com.geniusforapp.movies.mvp.view;
 
 import com.geniusforapp.movies.mvp.model.Movie;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 

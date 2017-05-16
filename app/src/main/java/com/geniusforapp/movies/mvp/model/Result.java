@@ -4,10 +4,10 @@ package com.geniusforapp.movies.mvp.model;
  * Created by anajar on 5/15/17.
  */
 
-import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 public class Result {
 
@@ -16,7 +16,7 @@ public class Result {
     private Integer page;
     @SerializedName("results")
     @Expose
-    private List<Movie> results = null;
+    private ArrayList<Movie> results;
     @SerializedName("dates")
     @Expose
     private Dates dates;
@@ -35,11 +35,11 @@ public class Result {
         this.page = page;
     }
 
-    public List<Movie> getResults() {
+    public ArrayList<Movie> getResults() {
         return results;
     }
 
-    public void setResults(List<Movie> results) {
+    public void setResults(ArrayList<Movie> results) {
         this.results = results;
     }
 
@@ -66,5 +66,6 @@ public class Result {
     public void setTotalResults(Integer totalResults) {
         this.totalResults = totalResults;
     }
+
 
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -23,10 +22,9 @@ import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter;
 import com.mikepenz.fastadapter_extensions.items.ProgressItem;
 import com.mikepenz.fastadapter_extensions.scroll.EndlessRecyclerOnScrollListener;
 import com.mikepenz.itemanimators.SlideUpAlphaAnimator;
-import com.mindorks.placeholderview.PlaceHolderView;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.vlonjatg.progressactivity.ProgressFrameLayout;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import butterknife.BindView;

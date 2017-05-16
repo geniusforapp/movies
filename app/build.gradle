@@ -54,6 +54,10 @@ dependencies {
     // Plain MVP
     compile 'com.hannesdorfmann.mosby3:mvp:3.0.3'
 
+    // Logger Library
+    compile 'com.orhanobut:logger:1.15'
+
+
     // Views Injector
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'

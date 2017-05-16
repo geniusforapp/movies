@@ -2,6 +2,7 @@ package com.geniusforapp.movies.ui.activites;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.geniusforapp.movies.R;
 import com.geniusforapp.movies.mvp.model.Movie;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +35,8 @@ public class MovieActivity extends BaseActivity {
     TextView popularity;
     @BindView(R.id.budget)
     TextView budget;
+    @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout collapsingToolbar;
 
 
     @Override
@@ -41,15 +45,26 @@ public class MovieActivity extends BaseActivity {
         setContentView(R.layout.activity_movie);
         ButterKnife.bind(this);
         showBack();
-        Movie movie = (Movie) getIntent().getSerializableExtra(Movie.class.getSimpleName());
+        final Movie movie = (Movie) getIntent().getSerializableExtra(Movie.class.getSimpleName());
         if (movie != null) {
             Glide.with(this).load(getString(R.string.image) + movie.getBackdropPath()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(backboardImage);
             Glide.with(this).load(getString(R.string.image) + movie.getPosterPath()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(coverImage);
-            setTitle(movie.getTitle());
+
             details.setText(movie.getOverview());
             popularity.setText(popularity.getText().toString().replace("%number", String.valueOf(movie.getPopularity())));
             budget.setText(budget.getText().toString().replace("%number", String.valueOf(movie.getBudget())));
             budget.setVisibility(movie.getBudget() != null ? View.VISIBLE : View.GONE);
+            appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+                @Override
+                public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                    if (verticalOffset == 0) {
+                        collapsingToolbar.setTitle("");
+                    } else {
+                        collapsingToolbar.setTitle(movie.getOriginalTitle());
+                    }
+
+                }
+            });
 
         }
 

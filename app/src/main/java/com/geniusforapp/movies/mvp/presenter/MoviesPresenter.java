@@ -1,7 +1,6 @@
 package com.geniusforapp.movies.mvp.presenter;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -12,6 +11,7 @@ import com.geniusforapp.movies.mvp.model.Result;
 import com.geniusforapp.movies.mvp.view.BaseView;
 import com.geniusforapp.movies.mvp.view.MoviesView;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,8 @@ import java.util.List;
 
 public class MoviesPresenter extends MvpBasePresenter<BaseView> {
     protected Context context;
+
+    public static final String TAG = MoviesPresenter.class.getSimpleName();
 
     public MoviesPresenter(Context context) {
         this.context = context;

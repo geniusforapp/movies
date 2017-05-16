@@ -4,18 +4,18 @@
     android:duration="500"
     android:transitionOrdering="together">
 
-    <changeBounds>
+    <fade>
         <targets>
             <target android:excludeId="@android:id/statusBarBackground" />
             <target android:excludeId="@android:id/navigationBarBackground" />
         </targets>
-    </changeBounds>
+    </fade>
 
-    <slide android:slideEdge="top">
+    <explode android:slideEdge="top">
         <targets>
-            <target android:targetId="@id/backboard_image" />
+            <target android:targetId="@id/backboard_image_container" />
         </targets>
-    </slide>
+    </explode>
     <slide android:slideEdge="bottom">
         <targets>
             <target android:targetId="@id/fab" />
