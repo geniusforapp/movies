@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="api_key">8e90124e146016033c6184ab4f53558d</string>
+
+    <string name="base_url">https://api.themoviedb.org/3/movie/</string>
+    <string name="image">https://image.tmdb.org/t/p/w500</string>
+    <string name="key_now_playing">now_playing</string>
+    <string name="key_popular">popular</string>
+    <string name="key_latest">latest</string>
+    <string name="key_top_rated">top_rated</string>
+    <string name="key_upcoming">upcoming</string>
+
+    <string name="parameter_api_key">api_key</string>
+
+</resources>
