@@ -25,10 +25,8 @@ import com.mikepenz.fastadapter_extensions.scroll.EndlessRecyclerOnScrollListene
 import com.mikepenz.itemanimators.SlideUpAlphaAnimator;
 import com.vlonjatg.progressactivity.ProgressFrameLayout;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-import butterknife.BindString;
 import butterknife.BindView;
 
 /**
@@ -146,9 +144,14 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
     protected EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(itemFooterAdapter) {
         @Override
         public void onLoadMore(int currentPage) {
+            int page = currentPage;
+            if (currentPage == 0) {
+                page = page + 1;
+            }
             itemFooterAdapter.clear();
             itemFooterAdapter.add(new ProgressItem().withEnabled(false));
-            moviesPresenter.getMovies(currentPage, type);
+            moviesPresenter.getMovies(page, type);
+
 
         }
     };
@@ -156,6 +159,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
     @Override
     public void onRefresh() {
         fastItemAdapter.clear();
+        endlessRecyclerOnScrollListener.resetPageCount();
         moviesPresenter.getMovies(1, type);
     }
 }

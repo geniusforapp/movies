@@ -3,5 +3,7 @@
 
 
     <item name="item_movie" type="id">item_movie</item>
-
+    <item name="item_related_movie" type="id">item_related_movie</item>
+    <item name="item_progress" type="id">item_progress</item>
+    <item name="item_genres" type="id">item_genres</item>
 </resources>
