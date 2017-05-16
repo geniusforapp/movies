@@ -26,11 +26,11 @@ This is a simple application using <a harf="https://www.themoviedb.org">TheMovie
 ```
 compile 'com.github.bumptech.glide:glide:3.7.0'
 ```
-####Communication library
+#### Communication library
 ```
 compile 'com.amitshekhar.android:android-networking:1.0.0'
 ```
-####State Library to show progress or content or error
+#### State Library to show progress or content or error
 ```
 compile 'com.github.vlonjatg:progress-activity:v2.0.3'
 ```
