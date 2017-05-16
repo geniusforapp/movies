@@ -5,7 +5,10 @@ import android.app.Application;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.gsonparserfactory.GsonParserFactory;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor;
+import com.geniusforapp.movies.R;
 import com.orhanobut.logger.Logger;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by anajar on 5/14/17.
@@ -17,11 +20,22 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // TODO: 5/16/17  init custom font
+
+        initFonts();
         // TODO: 5/16/17 init networking library
         initCommunication();
         // TODO: 5/16/17 init logger library
         logger();
 
+    }
+
+    private void initFonts() {
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(getString(R.string.medium))
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     private void logger() {

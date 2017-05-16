@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="com.geniusforapp.movies.ui.activites.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -33,10 +32,22 @@
 
     <include layout="@layout/content_home" />
 
-    <com.lapism.searchview.SearchView
-        android:id="@+id/searchView"
+
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.lapism.searchview.SearchBehavior" />
+        android:layout_height="match_parent"
+        app:floatingSearch_backgroundColor="@color/colorPrimaryDark"
+        app:floatingSearch_clearBtnColor="@color/md_grey_500"
+        app:floatingSearch_hintTextColor="@color/md_grey_500"
+        app:floatingSearch_leftActionColor="@color/md_grey_500"
+        app:floatingSearch_leftActionMode="noLeftAction"
+        app:floatingSearch_searchBarMarginLeft="5dp"
+        app:floatingSearch_searchBarMarginRight="5dp"
+        app:floatingSearch_searchBarMarginTop="5dp"
+        app:floatingSearch_showVoiceInput="true"
+        app:floatingSearch_voiceRecHint="Search"
+        app:layout_behavior="com.geniusforapp.movies.ui.views.SearchBehavior" />
+
 
 </android.support.design.widget.CoordinatorLayout>

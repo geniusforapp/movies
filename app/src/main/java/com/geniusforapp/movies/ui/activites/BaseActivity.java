@@ -1,5 +1,6 @@
 package com.geniusforapp.movies.ui.activites;
 
+import android.content.Context;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
@@ -11,6 +12,7 @@ import com.geniusforapp.movies.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by anajar on 5/14/17.
@@ -56,6 +58,11 @@ public class BaseActivity extends AppCompatActivity {
 
     public void showToast(@StringRes int message) {
         Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
 }
