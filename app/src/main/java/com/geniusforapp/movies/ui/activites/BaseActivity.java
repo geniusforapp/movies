@@ -1,8 +1,11 @@
 package com.geniusforapp.movies.ui.activites;
 
+import android.support.annotation.IntegerRes;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.geniusforapp.movies.R;
 
@@ -45,4 +48,14 @@ public class BaseActivity extends AppCompatActivity {
     public void showBack() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showToast(@StringRes int message) {
+        Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show();
+    }
+
 }

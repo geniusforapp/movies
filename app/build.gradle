@@ -43,8 +43,6 @@ dependencies {
 
     // Image Loader Library
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    // Parallax View
-    compile 'com.github.nirhart:parallaxscroll:1.0'
     // Communication library
     compile 'com.amitshekhar.android:android-networking:1.0.0'
 
@@ -57,6 +55,9 @@ dependencies {
     // Logger Library
     compile 'com.orhanobut:logger:1.15'
 
+    compile ('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
+        transitive = true;
+    }
 
     // Views Injector
     compile 'com.jakewharton:butterknife:8.5.1'

@@ -1,6 +1,7 @@
 package com.geniusforapp.movies.ui.activites;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -12,11 +13,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.geniusforapp.movies.R;
+import com.geniusforapp.movies.applications.helpers.AnimationsHelper;
 import com.geniusforapp.movies.mvp.model.Movie;
-import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MovieActivity extends BaseActivity {
 
@@ -43,13 +43,13 @@ public class MovieActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
-        ButterKnife.bind(this);
         showBack();
+
+
         final Movie movie = (Movie) getIntent().getSerializableExtra(Movie.class.getSimpleName());
         if (movie != null) {
-            Glide.with(this).load(getString(R.string.image) + movie.getBackdropPath()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(backboardImage);
+            Glide.with(this).load(getString(R.string.image) + movie.getBackdropPath()).diskCacheStrategy(DiskCacheStrategy.SOURCE).crossFade(0).into(backboardImage);
             Glide.with(this).load(getString(R.string.image) + movie.getPosterPath()).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(coverImage);
-
             details.setText(movie.getOverview());
             popularity.setText(popularity.getText().toString().replace("%number", String.valueOf(movie.getPopularity())));
             budget.setText(budget.getText().toString().replace("%number", String.valueOf(movie.getBudget())));
@@ -66,6 +66,7 @@ public class MovieActivity extends BaseActivity {
                 }
             });
 
+
         }
 
 
@@ -76,11 +77,15 @@ public class MovieActivity extends BaseActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-                supportFinishAfterTransition();
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        supportFinishAfterTransition();
+    }
 }

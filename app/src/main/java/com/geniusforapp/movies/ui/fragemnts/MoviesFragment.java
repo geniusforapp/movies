@@ -3,6 +3,7 @@ package com.geniusforapp.movies.ui.fragemnts;
 import android.content.Intent;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ import com.vlonjatg.progressactivity.ProgressFrameLayout;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import butterknife.BindString;
 import butterknife.BindView;
 
 /**
@@ -104,7 +106,8 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
                     ItemMovie itemMovie = (ItemMovie) item;
                     Intent intent = new Intent(getContext(), MovieActivity.class);
                     intent.putExtra(Movie.class.getSimpleName(), itemMovie.getMovie());
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), (View) itemMovie.getViewHolder(v).image, "cover");
+                    Pair<View, String> p1 = Pair.create((View) itemMovie.getViewHolder(v).image, "cover");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), p1);
                     startActivity(intent, options.toBundle());
                 }
                 return false;

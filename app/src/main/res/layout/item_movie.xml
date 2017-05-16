@@ -26,7 +26,8 @@
                 android:background="@color/md_grey_200"
                 android:maxHeight="200dp"
                 android:minHeight="200dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:transitionName="backboard" />
 
 
             <ImageView
