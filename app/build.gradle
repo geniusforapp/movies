@@ -16,18 +16,24 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "you_tube_api_key", "\"" + getApiKey("YOU_TUBE_API_KEY") + "\""
         }
+
+        debug {
+            resValue "string", "you_tube_api_key", "\"" + getApiKey("YOU_TUBE_API_KEY") + "\""
+        }
+
     }
     applicationVariants.all { variant ->
-        variant.buildConfigField "String", "MOVIE_DB_API_KEY", "\""+getApiKey()+"\""
+        variant.buildConfigField "String", "MOVIE_DB_API_KEY", "\"" + getApiKey("MOVIE_DB_API_KEY") + "\""
     }
 
 }
 
-def getApiKey(){
+def getApiKey(String s) {
     def Properties props = new Properties()
     props.load(new FileInputStream(new File('gradle.properties')))
-    return props['MOVIE_DB_API_KEY']
+    return props[s]
 }
 
 dependencies {
@@ -41,7 +47,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:cardview-v7:25.3.1'
-
 
     // Adapter and list animation and material design helper
     compile('com.mikepenz:fastadapter:2.5.2@aar') {
@@ -68,7 +73,7 @@ dependencies {
     // Logger Library
     compile 'com.orhanobut:logger:1.15'
 
-    compile ('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
+    compile('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
         transitive = true;
     }
 
@@ -84,7 +89,6 @@ dependencies {
 
     // Add youtube player
     compile 'com.thefinestartist:ytpa:1.2.1'
-
 
     // Views Injector
     compile 'com.jakewharton:butterknife:8.5.1'
