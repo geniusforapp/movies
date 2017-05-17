@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
@@ -25,9 +24,11 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-
             app:tabGravity="fill"
-            app:tabMode="scrollable" />
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1.Tabs"
+            app:tabTextColor="@color/md_white_1000" />
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_home" />
@@ -39,13 +40,16 @@
         android:layout_height="match_parent"
         app:floatingSearch_backgroundColor="@color/colorPrimaryDark"
         app:floatingSearch_clearBtnColor="@color/md_grey_500"
+        app:floatingSearch_dividerColor="@color/colorPrimaryDark"
         app:floatingSearch_hintTextColor="@color/md_grey_500"
         app:floatingSearch_leftActionColor="@color/md_grey_500"
-        app:floatingSearch_leftActionMode="noLeftAction"
+        app:floatingSearch_leftActionMode="showSearch"
         app:floatingSearch_searchBarMarginLeft="5dp"
         app:floatingSearch_searchBarMarginRight="5dp"
         app:floatingSearch_searchBarMarginTop="5dp"
         app:floatingSearch_showVoiceInput="true"
+        app:floatingSearch_suggestionRightIconColor="@color/colorAccent"
+        app:floatingSearch_viewTextColor="@color/md_white_1000"
         app:floatingSearch_voiceRecHint="Search"
         app:layout_behavior="com.geniusforapp.movies.ui.views.SearchBehavior" />
 

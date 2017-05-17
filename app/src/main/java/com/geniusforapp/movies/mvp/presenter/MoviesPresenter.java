@@ -126,4 +126,36 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
     }
 
 
+    public void searchView(String query, int page) {
+        if (isViewAttached() && context != null) {
+            final MoviesView moviesView = (MoviesView) getView();
+            if (page == 1) {
+                moviesView.showLoading(true);
+            }
+            AndroidNetworking.get("https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=en-US&query={query}&page={page}&include_adult=true")
+                    .setTag(query)
+                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("query", query)
+                    .addPathParameter("page", String.valueOf(page))
+                    .build()
+                    .getAsObject(Result.class, new ParsedRequestListener<Result>() {
+                        @Override
+                        public void onResponse(Result response) {
+                            if (response.getResults() != null) {
+                                moviesView.showMovies(response.getResults());
+                            } else {
+                                moviesView.showContent(context.getString(R.string.alert_no_more_data));
+                            }
+
+                        }
+
+                        @Override
+                        public void onError(ANError anError) {
+                            moviesView.showError(anError.getResponse().message());
+                        }
+                    });
+        }
+    }
+
+
 }
