@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activites.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +24,18 @@
         </activity>
         <activity
             android:name=".ui.activites.MovieActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ThemDetails"></activity>
+        <activity
+            android:name="com.thefinestartist.ytpa.YouTubePlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <!--Need Your Google API Key-->
+        <meta-data
+            android:name="com.thefinestartist.ytpa.YouTubePlayerActivity.ApiKey"
+            android:value="@string/youtube_api_key" />
     </application>
 
 </manifest>

@@ -87,7 +87,7 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
     @Override
     public void onSearchTextChanged(String oldQuery, String newQuery) {
         if (!newQuery.isEmpty()) {
-            moviesPresenter.searchView(newQuery, 1);
+            moviesPresenter.search(newQuery, 1);
         } else {
             searchView.clearSuggestions();
         }
@@ -108,7 +108,7 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
     @Override
     public void onSearchAction(String currentQuery) {
         if (!currentQuery.isEmpty()) {
-            moviesPresenter.searchView(currentQuery, 1);
+            moviesPresenter.search(currentQuery, 1);
         } else {
             searchView.clearSuggestions();
         }

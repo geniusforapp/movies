@@ -1,6 +1,7 @@
 package com.geniusforapp.movies.ui.adapters.items;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -65,6 +66,8 @@ public class ItemRelatedMovie extends AbstractItem<ItemRelatedMovie, ItemRelated
         ImageView imagePoster;
         @BindView(R.id.title)
         TextView title;
+        @BindView(R.id.card)
+        public CardView card;
 
         public RelatedMovieViewHolder(View itemView) {
             super(itemView);

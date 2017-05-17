@@ -14,4 +14,9 @@
 
     <string name="parameter_api_key">api_key</string>
 
+
+    <!-- TODO : Youtube Api -->
+    <string name="youtube_api_key">AIzaSyD93KsFf3uj6uz-Sm-n35YB3uS_tuC45DM</string>
+    <string name="youtube_video_url">https://www.youtube.com/watch?v=</string>
+
 </resources>

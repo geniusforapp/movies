@@ -107,7 +107,7 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
                     ItemMovie itemMovie = (ItemMovie) item;
                     Intent intent = new Intent(getContext(), MovieActivity.class);
                     intent.putExtra(Movie.class.getSimpleName(), itemMovie.getMovie());
-                    Pair<View, String> image = Pair.create((View) itemMovie.getViewHolder(v).image, "cover");
+
                     Pair<View, String> card = Pair.create((View) itemMovie.getViewHolder(v).card, "card");
                     ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), card);
                     startActivity(intent, options.toBundle());
@@ -139,7 +139,6 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
         swipeRefreshLayout.setRefreshing(false);
         for (Movie m : nowPlaying) {
             fastItemAdapter.add(new ItemMovie().setMovie(m));
-
         }
 
     }
@@ -155,8 +154,6 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
             itemFooterAdapter.clear();
             itemFooterAdapter.add(new ProgressItem().withEnabled(false));
             moviesPresenter.getMovies(page, type);
-
-
         }
     };
 

@@ -8,15 +8,16 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Result {
+public class Result<T> {
 
     @SerializedName("page")
     @Expose
     private Integer page;
     @SerializedName("results")
     @Expose
-    private ArrayList<Movie> results;
+    private List<T> results;
     @SerializedName("dates")
     @Expose
     private Dates dates;
@@ -35,11 +36,11 @@ public class Result {
         this.page = page;
     }
 
-    public ArrayList<Movie> getResults() {
+    public List<T> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<Movie> results) {
+    public void setResults(List<T> results) {
         this.results = results;
     }
 

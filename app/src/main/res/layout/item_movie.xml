@@ -10,6 +10,7 @@
     android:foreground="?attr/selectableItemBackgroundBorderless"
     android:transitionName="card"
     app:cardBackgroundColor="@color/colorPrimary"
+    app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -44,7 +45,7 @@
                 android:maxWidth="100dp"
                 android:minHeight="150dp"
                 android:minWidth="100dp"
-                android:transitionName="cover" />
+                android:transitionName="poster" />
 
 
         </FrameLayout>
