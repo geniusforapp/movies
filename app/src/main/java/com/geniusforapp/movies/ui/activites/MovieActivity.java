@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MenuItem;
@@ -26,7 +24,6 @@ import com.geniusforapp.movies.mvp.view.MovieView;
 import com.geniusforapp.movies.mvp.view.MoviesView;
 import com.geniusforapp.movies.mvp.view.VideosView;
 import com.geniusforapp.movies.ui.adapters.items.ItemGenres;
-import com.geniusforapp.movies.ui.adapters.items.ItemMovie;
 import com.geniusforapp.movies.ui.adapters.items.ItemProgress;
 import com.geniusforapp.movies.ui.adapters.items.ItemRelatedMovie;
 import com.geniusforapp.movies.ui.adapters.items.ItemVideo;
@@ -269,7 +266,6 @@ public class MovieActivity extends BaseActivity implements PullBackLayout.Callba
     @Override
     public boolean onClick(View v, IAdapter<IItem> adapter, IItem item, int position) {
         Intent intent = null;
-        ActivityOptionsCompat options = null;
         if (item instanceof ItemVideo) {
             intent = new Intent(this, YouTubePlayerActivity.class);
             ItemVideo itemVideo = (ItemVideo) item;
@@ -286,16 +282,9 @@ public class MovieActivity extends BaseActivity implements PullBackLayout.Callba
             ItemRelatedMovie itemMovie = (ItemRelatedMovie) item;
             intent = new Intent(this, MovieActivity.class);
             intent.putExtra(Movie.class.getSimpleName(), itemMovie.getMovie());
-            Pair<View, String> card = Pair.create((View) itemMovie.getViewHolder(v).card, "card");
-            options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, card);
         }
-        if (options != null) {
-            startActivity(intent, options.toBundle());
-        } else {
-            startActivity(intent);
-        }
-
-        return false;
+        startActivity(intent);
+        return true;
     }
 }
 

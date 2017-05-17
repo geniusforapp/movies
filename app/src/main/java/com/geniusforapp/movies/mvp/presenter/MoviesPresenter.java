@@ -5,6 +5,7 @@ import android.content.Context;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.geniusforapp.movies.BuildConfig;
 import com.geniusforapp.movies.R;
 import com.geniusforapp.movies.mvp.model.Movie;
 import com.geniusforapp.movies.mvp.model.Result;
@@ -15,10 +16,6 @@ import com.geniusforapp.movies.mvp.view.MoviesView;
 import com.geniusforapp.movies.mvp.view.VideosView;
 import com.google.gson.reflect.TypeToken;
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
-import com.orhanobut.logger.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by anajar on 5/15/17.
@@ -42,7 +39,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
             AndroidNetworking.get(context.getString(R.string.base_url) + "{value}?api_key={api_key}&language=en-US&page={page}")
                     .addPathParameter("value", value)
                     .setTag(value)
-                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("api_key", BuildConfig.MOVIE_DB_API_KEY)
                     .addPathParameter("page", String.valueOf(page))
                     .build()
                     .getAsParsed(new TypeToken<Result<Movie>>() {
@@ -76,7 +73,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
                     .addPathParameter("value", value)
                     .addPathParameter("movie_id", movieId)
                     .setTag(value)
-                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("api_key", BuildConfig.MOVIE_DB_API_KEY)
                     .addPathParameter("page", String.valueOf(page))
                     .build()
                     .getAsParsed(new TypeToken<Result<Movie>>() {
@@ -108,7 +105,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
             AndroidNetworking.get(context.getString(R.string.base_url) + "{movie_id}" + "?api_key={api_key}&language=en-US")
                     .addPathParameter("movie_id", movieId)
                     .setTag(movieId)
-                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("api_key", BuildConfig.MOVIE_DB_API_KEY)
                     .build()
                     .getAsObject(Movie.class, new ParsedRequestListener<Movie>() {
                         @Override
@@ -139,7 +136,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
             }
             AndroidNetworking.get("https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=en-US&query={query}&page={page}&include_adult=true")
                     .setTag(query)
-                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("api_key", BuildConfig.MOVIE_DB_API_KEY)
                     .addPathParameter("query", query)
                     .addPathParameter("page", String.valueOf(page))
                     .build()
@@ -169,7 +166,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
             final VideosView videosView = (VideosView) getView();
             AndroidNetworking.get("https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key={api_key}&language=en-US")
                     .setTag(moveId)
-                    .addPathParameter("api_key", context.getString(R.string.api_key))
+                    .addPathParameter("api_key", BuildConfig.MOVIE_DB_API_KEY)
                     .addPathParameter("movie_id", moveId)
                     .build()
                     .getAsParsed(new TypeToken<Result<Video>>() {

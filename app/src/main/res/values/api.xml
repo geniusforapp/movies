@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="api_key">8e90124e146016033c6184ab4f53558d</string>
+
 
     <string name="base_url">https://api.themoviedb.org/3/movie/</string>
     <string name="image">https://image.tmdb.org/t/p/w500</string>
@@ -16,7 +16,6 @@
 
 
     <!-- TODO : Youtube Api -->
-    <string name="youtube_api_key">AIzaSyD93KsFf3uj6uz-Sm-n35YB3uS_tuC45DM</string>
-    <string name="youtube_video_url">https://www.youtube.com/watch?v=</string>
+
 
 </resources>

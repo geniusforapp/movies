@@ -35,7 +35,7 @@
         <!--Need Your Google API Key-->
         <meta-data
             android:name="com.thefinestartist.ytpa.YouTubePlayerActivity.ApiKey"
-            android:value="@string/youtube_api_key" />
+            android:value="M" />
     </application>
 
 </manifest>

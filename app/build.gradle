@@ -18,6 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    applicationVariants.all { variant ->
+        variant.buildConfigField "String", "MOVIE_DB_API_KEY", "\""+getApiKey()+"\""
+    }
+
+}
+
+def getApiKey(){
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('gradle.properties')))
+    return props['MOVIE_DB_API_KEY']
 }
 
 dependencies {
