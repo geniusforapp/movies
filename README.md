@@ -1,12 +1,14 @@
 # Movies
 This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
-## Library used in this project
+
 
 <img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image1.png" width="23%"/></img>
 <img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image2.png" width="23%"/></img>
 <img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image3.png" width="23%"/></img>
 <img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image4.png" width="23%"/></img>
+
+## Library used in this project
 
 #### Android support library
 ```
