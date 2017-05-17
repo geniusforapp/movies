@@ -14,8 +14,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activites.HomeActivity"
-
-            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +23,7 @@
         </activity>
         <activity
             android:name=".ui.activites.MovieActivity"
-            android:label="@string/title_activity_movie"
-            android:theme="@style/AppTheme.NoActionBar.Details"></activity>
+            android:theme="@style/AppTheme.ThemDetails"></activity>
     </application>
 
 </manifest>

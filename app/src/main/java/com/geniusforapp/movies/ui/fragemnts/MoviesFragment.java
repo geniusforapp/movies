@@ -5,6 +5,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -106,8 +107,9 @@ public class MoviesFragment extends BaseFragment implements MoviesView, SwipeRef
                     ItemMovie itemMovie = (ItemMovie) item;
                     Intent intent = new Intent(getContext(), MovieActivity.class);
                     intent.putExtra(Movie.class.getSimpleName(), itemMovie.getMovie());
-                    Pair<View, String> p1 = Pair.create((View) itemMovie.getViewHolder(v).image, "cover");
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), p1);
+                    Pair<View, String> image = Pair.create((View) itemMovie.getViewHolder(v).image, "cover");
+                    Pair<View, String> card = Pair.create((View) itemMovie.getViewHolder(v).card, "card");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), card);
                     startActivity(intent, options.toBundle());
                 }
                 return false;

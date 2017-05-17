@@ -6,5 +6,7 @@ import com.geniusforapp.movies.mvp.model.Movie;
  * Created by anajar on 5/16/17.
  */
 
-public interface MovieView extends BaseView<Movie> {
+public interface MovieView extends BaseView<String> {
+
+    public void showMovie(Movie movie);
 }

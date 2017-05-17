@@ -65,6 +65,9 @@ dependencies {
     compile 'com.robertlevonyan.view:MaterialChipView:1.0.1'
     compile 'com.github.arimorty:floatingsearchview:2.0.3'
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
+    compile 'com.github.oxoooo:pull-back-layout:1.0.1'
+
 
 
     // Views Injector

@@ -10,6 +10,7 @@
     <string name="key_latest">latest</string>
     <string name="key_top_rated">top_rated</string>
     <string name="key_upcoming">upcoming</string>
+    <string name="key_similar">similar</string>
 
     <string name="parameter_api_key">api_key</string>
 

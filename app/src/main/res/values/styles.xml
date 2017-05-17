@@ -17,15 +17,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.Details">
+    <style name="AppTheme.ThemDetails">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:ignore="NewApi">true</item>
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/semiTransparent</item>
-        <item name="android:windowEnterTransition" tools:ignore="NewApi">
-            @transition/details_window_enter_transition
-        </item>
-        <item name="android:windowReturnTransition" tools:ignore="NewApi">
-            @transition/details_window_return_transition
-        </item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+        <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

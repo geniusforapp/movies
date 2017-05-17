@@ -109,7 +109,7 @@ public class MoviesPresenter extends MvpBasePresenter<BaseView> {
                         @Override
                         public void onResponse(Movie response) {
                             if (response != null) {
-                                movieView.showContent(response);
+                                movieView.showMovie(response);
                             } else {
                                 movieView.showError(context.getString(R.string.alert_no_more_data));
                             }

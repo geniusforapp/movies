@@ -62,6 +62,7 @@
             android:padding="10dp"
             android:textColor="@color/md_white_1000" />
 
+
         <TextView
             android:id="@+id/genres"
             style="@style/Base.TextAppearance.AppCompat.Body2"
@@ -114,6 +115,7 @@
                 android:id="@+id/list_trials"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
         </com.vlonjatg.progressactivity.ProgressLinearLayout>
 
     </LinearLayout>
