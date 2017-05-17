@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
-                    app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Body1.Tabs"
+                    app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Small.Tabs"
                     app:contentScrim="?attr/colorPrimary"
                     app:expandedTitleMarginStart="150dp"
                     app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"

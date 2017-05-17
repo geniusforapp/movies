@@ -8,7 +8,7 @@
     <string name="alert_no_more_data">No more data</string>
 
 
-    <string name="tab_title_now_playing">Now Playing</string>
+    <string name="tab_title_now_playing">Now</string>
     <string name="tab_title_popular">Popular</string>
     <string name="tab_title_latest">Latest</string>
     <string name="tab_title_top_rated">Top Rated</string>

@@ -70,6 +70,8 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
         addPages(pagerAdapter);
         home.setAdapter(pagerAdapter);
         tabs.setupWithViewPager(home);
+
+        tabs.getTabAt(0).setText("").setIcon(ContextCompat.getDrawable(this, R.drawable.ic_video_list));
     }
 
 

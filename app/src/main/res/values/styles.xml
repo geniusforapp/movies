@@ -32,7 +32,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="TextAppearance.AppCompat.Body1.Tabs" />
+    <style name="TextAppearance.AppCompat.Small.Tabs" />
 
 
 </resources>

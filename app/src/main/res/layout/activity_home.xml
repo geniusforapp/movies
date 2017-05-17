@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="enterAlways|scroll"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
@@ -24,10 +25,11 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:tabGravity="fill"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/tabs_colors"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1.Tabs"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Small.Tabs"
             app:tabTextColor="@color/md_white_1000" />
     </android.support.design.widget.AppBarLayout>
 
