@@ -154,7 +154,7 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
     public void onActionMenuItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_about:
-                new LibsBuilder()
+                new LibsBuilder().withAboutAppName(getString(R.string.app_name))
                         //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
                         .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
                         //start the activity
