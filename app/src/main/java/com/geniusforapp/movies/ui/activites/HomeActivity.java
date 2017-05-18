@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import com.geniusforapp.movies.mvp.presenter.MoviesPresenter;
 import com.geniusforapp.movies.mvp.view.MoviesView;
 import com.geniusforapp.movies.ui.adapters.pagers.PagerAdapter;
 import com.geniusforapp.movies.ui.fragemnts.MoviesFragment;
+import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,7 +34,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static com.geniusforapp.movies.ui.adapters.pagers.PagerAdapter.PagerItem;
 
-public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQueryChangeListener, FloatingSearchView.OnSearchListener, MoviesView, SearchSuggestionsAdapter.OnBindSuggestionCallback {
+public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQueryChangeListener, FloatingSearchView.OnSearchListener, MoviesView, SearchSuggestionsAdapter.OnBindSuggestionCallback, FloatingSearchView.OnMenuItemClickListener {
 
 
     @BindView(R.id.tabs)
@@ -61,6 +64,7 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
         searchView.setOnQueryChangeListener(this);
         searchView.setOnSearchListener(this);
         searchView.setOnBindSuggestionCallback(this);
+        searchView.setOnMenuItemClickListener(this);
     }
 
     private void initPager() {
@@ -144,6 +148,21 @@ public class HomeActivity extends BaseActivity implements FloatingSearchView.OnQ
         SearchedMovie searched = (SearchedMovie) item;
         Glide.with(this).load(getString(R.string.image) + searched.getMovie().getPosterPath()).bitmapTransform(new CropCircleTransformation(this)).into(leftIcon);
         textView.setTextColor(ContextCompat.getColor(this, R.color.md_white_1000));
+    }
+
+    @Override
+    public void onActionMenuItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                new LibsBuilder()
+                        //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
+                        .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
+                        //start the activity
+                        .start(this);
+                break;
+            default:
+                break;
+        }
     }
 }
 

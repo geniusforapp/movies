@@ -46,6 +46,7 @@
         app:floatingSearch_hintTextColor="@color/md_grey_500"
         app:floatingSearch_leftActionColor="@color/md_grey_500"
         app:floatingSearch_leftActionMode="showSearch"
+        app:floatingSearch_menu="@menu/menu_home"
         app:floatingSearch_searchBarMarginLeft="5dp"
         app:floatingSearch_searchBarMarginRight="5dp"
         app:floatingSearch_searchBarMarginTop="5dp"
