@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
-    android:transitionName="card"
     app:cardBackgroundColor="@color/colorPrimaryDark"
     app:cardUseCompatPadding="true">
 
@@ -24,12 +23,12 @@
 
     <TextView
         android:id="@+id/title"
-        style="@style/Base.TextAppearance.AppCompat.Body2"
-        android:layout_width="match_parent"
+        style="@style/Base.TextAppearance.AppCompat.Small"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="#76000000"
+        android:background="#74000000"
         android:gravity="center"
         android:padding="5dp"
         android:textColor="@color/md_white_1000" />

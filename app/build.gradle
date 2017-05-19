@@ -56,6 +56,9 @@ dependencies {
     compile 'com.mikepenz:fastadapter-extensions:2.5.2@aar'
     compile "com.mikepenz:itemanimators:0.5.0@aar"
     compile 'com.mikepenz:materialize:1.0.1@aar'
+    compile('com.mikepenz:aboutlibraries:5.9.6@aar') {
+        transitive = true
+    }
 
     // Image Loader Library
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -83,9 +86,6 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'com.github.aakira:expandable-layout:1.6.0@aar'
     compile 'com.github.oxoooo:pull-back-layout:1.0.1'
-    // Animations
-    compile 'com.daimajia.easing:library:2.0@aar'
-    compile 'com.daimajia.androidanimations:library:2.2@aar'
 
     // Add youtube player
     compile 'com.thefinestartist:ytpa:1.2.1'

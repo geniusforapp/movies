@@ -57,8 +57,8 @@ public class MovieActivity extends BaseActivity implements PullBackLayout.Callba
     AppBarLayout appBar;
     @BindView(R.id.details)
     TextView details;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
+/*    @BindView(R.id.fab)
+    FloatingActionButton fab;*/
     @BindView(R.id.popularity)
     TextView popularity;
     @BindView(R.id.budget)
@@ -177,11 +177,11 @@ public class MovieActivity extends BaseActivity implements PullBackLayout.Callba
 
     @Override
     public void onPull(float v) {
-        if (v > 0.2) {
+       /* if (v > 0.2) {
             fab.hide();
         } else {
             fab.show();
-        }
+        }*/
     }
 
     @Override
