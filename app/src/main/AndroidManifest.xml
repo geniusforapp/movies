@@ -12,30 +12,30 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.activites.HomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activites.MovieActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.ThemDetails"></activity>
-        <activity
-            android:name="com.thefinestartist.ytpa.YouTubePlayerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="sensor"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:name=".ui.details.movie.MovieActivity"
+            android:theme="@style/AppTheme.ThemDetails" />
 
-        <!--Need Your Google API Key-->
         <meta-data
-            android:name="com.thefinestartist.ytpa.YouTubePlayerActivity.ApiKey"
-            android:value="@string/you_tube_api_key" />
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <!--  <activity
+              android:name="com.thefinestartist.ytpa.YouTubePlayerActivity"
+              android:configChanges="keyboardHidden|orientation|screenSize"
+              android:screenOrientation="sensor"
+              android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+          <meta-data
+              android:name="com.thefinestartist.ytpa.YouTubePlayerActivity.ApiKey"
+              android:value="@string/you_tube_api_key" />-->
     </application>
 
 </manifest>

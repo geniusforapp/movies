@@ -1,99 +1,89 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'checkstyle'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.geniusforapp.movies"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue "string", "you_tube_api_key", "\"" + getApiKey("YOU_TUBE_API_KEY") + "\""
+            buildConfigField "String", "YOUTUBE_API_KEY", "\"${YOU_TUBE_API_KEY}\""
+            buildConfigField "String", "MOVIE_DB_API_KEY", "\"${MOVIE_DB_API_KEY}\""
+            buildConfigField "String", "API_URL", "\"https://api.themoviedb.org/3/\""
         }
 
         debug {
-            resValue "string", "you_tube_api_key", "\"" + getApiKey("YOU_TUBE_API_KEY") + "\""
+            buildConfigField "String", "YOUTUBE_API_KEY", "\"${YOU_TUBE_API_KEY}\""
+            buildConfigField "String", "MOVIE_DB_API_KEY", "\"${MOVIE_DB_API_KEY}\""
+            buildConfigField "String", "API_URL", "\"https://api.themoviedb.org/3/\""
         }
 
     }
-    applicationVariants.all { variant ->
-        variant.buildConfigField "String", "MOVIE_DB_API_KEY", "\"" + getApiKey("MOVIE_DB_API_KEY") + "\""
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
-}
-
-def getApiKey(String s) {
-    def Properties props = new Properties()
-    props.load(new FileInputStream(new File('gradle.properties')))
-    return props[s]
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    //android support library
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:support-compat:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:cardview-v7:25.3.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Adapter and list animation and material design helper
-    compile('com.mikepenz:fastadapter:2.5.2@aar') {
-        transitive = true
-    }
-    compile 'com.mikepenz:fastadapter-commons:2.5.2@aar'
-    compile 'com.mikepenz:fastadapter-extensions:2.5.2@aar'
-    compile "com.mikepenz:itemanimators:0.5.0@aar"
-    compile 'com.mikepenz:materialize:1.0.1@aar'
-    compile('com.mikepenz:aboutlibraries:5.9.6@aar') {
-        transitive = true
-    }
+    //android support library
+    implementation 'androidx.core:core:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation "androidx.paging:paging-runtime-ktx:2.1.0"
+    testImplementation "androidx.paging:paging-common-ktx:2.1.0"
+    implementation "androidx.paging:paging-rxjava2-ktx:2.1.0"
+
+    implementation "androidx.core:core-ktx:1.0.2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
     // Image Loader Library
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'jp.wasabeef:glide-transformations:2.0.2'
-
-    // Communication library
-    compile 'com.amitshekhar.android:android-networking:1.0.0'
-
-    // State Library to show progress or content or error
-    compile 'com.github.vlonjatg:progress-activity:v2.0.3'
-
-    // Plain MVP
-    compile 'com.hannesdorfmann.mosby3:mvp:3.0.3'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
 
     // Logger Library
-    compile 'com.orhanobut:logger:1.15'
+    implementation 'com.orhanobut:logger:2.2.0'
 
-    compile('com.github.ozodrukh:CircularReveal:2.0.1@aar') {
-        transitive = true;
-    }
-
-    // Design
-    compile 'com.robertlevonyan.view:MaterialChipView:1.0.1'
-    compile 'com.github.arimorty:floatingsearchview:2.0.3'
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
-    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
-    compile 'com.github.oxoooo:pull-back-layout:1.0.1'
+    implementation 'com.github.arimorty:floatingsearchview:2.0.3'
+    implementation 'com.github.oxoooo:pull-back-layout:1.0.1'
 
     // Add youtube player
-    compile 'com.thefinestartist:ytpa:1.2.1'
+    implementation 'com.thefinestartist:ytpa:1.2.1'
 
-    // Views Injector
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
 
-    testCompile 'junit:junit:4.12'
+    implementation 'com.google.dagger:dagger:2.22.1'
+    implementation 'com.google.dagger:dagger-android-support:2.22.1'
+    kapt 'com.google.dagger:dagger-android-processor:2.22.1'
+    kapt 'com.google.dagger:dagger-compiler:2.22.1'
 
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.0.0"
+
+
+}
+repositories {
+    mavenCentral()
 }

@@ -3,8 +3,6 @@
     <string name="action_about">About</string>
 
 
-    <!-- TODO : Alerts messages -->
-
     <string name="alert_no_more_data">No more data</string>
 
 
@@ -13,11 +11,6 @@
     <string name="tab_title_latest">Latest</string>
     <string name="tab_title_top_rated">Top Rated</string>
     <string name="tab_title_up_coming">Upcoming</string>
-
-
-    <!-- TODO : About library -->
-    <string name="aboutLibraries_description_showIcon">true</string>
-    <string name="aboutLibraries_description_showVersion">true</string>
-    <string name="aboutLibraries_description_text">Don\'t worry about new movies and rate looking for the trials with movies you can get it now this application is made under geniusforapp this app is open source application you are welcome to join the team enjoy.</string>
+    <string name="hint_search">Search in %s…</string>
 
 </resources>
