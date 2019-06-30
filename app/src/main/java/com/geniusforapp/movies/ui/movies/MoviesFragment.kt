@@ -20,7 +20,6 @@ import javax.inject.Inject
 
 class MoviesFragment : BaseFragment() {
 
-
     @Inject
     lateinit var viewModelFactory: MoviesViewModelFactory
 
@@ -57,7 +56,7 @@ class MoviesFragment : BaseFragment() {
     }
 
     private fun getObserver(): Observer<PagedList<MoviesResponse.Result>> {
-        return Observer { moviesAdapter.submitList(it) }
+        return Observer {   moviesAdapter.submitList(it) }
     }
 
 

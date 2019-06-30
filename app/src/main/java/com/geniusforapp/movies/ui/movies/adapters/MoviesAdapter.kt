@@ -12,7 +12,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-@Singleton
 class MoviesAdapter @Inject constructor(moviesItemCallback: MoviesItemCallback) : PagedListAdapter<MoviesResponse.Result, MoviesViewHolder>(moviesItemCallback) {
 
 
