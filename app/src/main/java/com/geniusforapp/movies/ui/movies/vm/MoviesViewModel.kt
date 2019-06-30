@@ -10,8 +10,7 @@ import com.geniusforapp.movies.shared.domain.datasources.MoviesDataSourceFactory
 import javax.inject.Inject
 import javax.inject.Singleton
 
-class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: MoviesDataSourceFactory) :
-        ViewModel() {
+class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: MoviesDataSourceFactory) : ViewModel() {
 
 
     private var movies: LiveData<PagedList<MoviesResponse.Result>>? = null
