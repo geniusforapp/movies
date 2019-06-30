@@ -8,4 +8,5 @@ interface MoviesRepository {
 
     fun getMovies(filterType: String, page: Int): Single<MoviesResponse>
 
+
 }

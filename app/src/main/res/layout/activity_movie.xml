@@ -1,89 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ooo.oxo.library.widget.PullBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/puller"
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_layout_progress"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    android:transitionName="card"
+    tools:context="com.geniusforapp.movies.ui.details.movie.MovieActivity">
 
-    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/frame_layout_progress"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:transitionName="card"
-        tools:context="com.geniusforapp.detailsMovies.ui.details.MovieActivity">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:fitsSystemWindows="true">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@id/toolbar">
 
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/app_bar"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                app:layout_collapseMode="parallax">
 
-                <com.google.android.material.appbar.CollapsingToolbarLayout
-                    android:id="@+id/collapsing_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Small.Tabs"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:expandedTitleMarginStart="150dp"
-                    app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-
-                    <ImageView
-                        android:id="@+id/backboard_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:adjustViewBounds="true"
-                        android:fitsSystemWindows="true"
-                        android:scaleType="fitXY"
-                        android:transitionName="backboard"
-                        app:layout_collapseMode="parallax" />
+                <ImageView
+                    android:id="@+id/imageBackdrop"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:transitionName="@string/transition_backdrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
 
 
-                    <ImageView
-                        android:id="@+id/image_cover"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_margin="40dp"
-                        android:adjustViewBounds="true"
-                        android:maxWidth="100dp"
-                        android:maxHeight="150dp"
-                        android:minWidth="100dp"
-                        android:minHeight="150dp"
-                        android:transitionName="poster"
-                        app:layout_collapseMode="parallax" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:contentInsetStartWithNavigation="0dp"
-                        app:layout_collapseMode="pin"
-                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-                </com.google.android.material.appbar.CollapsingToolbarLayout>
-            </com.google.android.material.appbar.AppBarLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <include layout="@layout/content_movie" />
+    <include layout="@layout/content_movie" />
 
-            <!--      <android.support.design.widget.FloatingActionButton
-                      android:id="@+id/fab"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="bottom|right|end"
-                      android:layout_margin="@dimen/fab_margin"
-                      app:backgroundTint="@color/md_white_1000"
-                      app:srcCompat="@drawable/ic_favorite_border_black_24dp" />-->
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    </FrameLayout>
 
-</ooo.oxo.library.widget.PullBackLayout>
+    <ImageView
+        android:id="@+id/imagePoster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:adjustViewBounds="true"
+        android:elevation="16dp"
+        android:minWidth="100dp"
+        android:minHeight="200dp"
+        android:transitionName="@string/transition_poster"
+        app:layout_anchor="@id/appBar"
+        app:layout_anchorGravity="bottom|start"
+        tools:src="@tools:sample/avatars" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

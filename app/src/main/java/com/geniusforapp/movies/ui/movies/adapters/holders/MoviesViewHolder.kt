@@ -8,12 +8,16 @@ import com.bumptech.glide.request.RequestOptions
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MoviesResponse
 import kotlinx.android.synthetic.main.item_movie.view.*
+import kotlin.math.roundToInt
 
 class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bindView(item: MoviesResponse.Result?) {
-        item?.let {
-            initImages(it)
-            initTexts(it)
+
+
+    fun bindView(item: MoviesResponse.Result?, onItemClick: (itemView: View, MoviesResponse.Result) -> Unit) {
+        item?.let { result ->
+            initImages(result)
+            initTexts(result)
+            itemView.setOnClickListener { onItemClick(itemView, result) }
         }
 
     }
@@ -22,6 +26,8 @@ class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.textTitle.text = it.title
         itemView.textDescription.text = it.overview
         itemView.ratingBar.rating = it.voteAverage.toFloat()
+        itemView.textAvgRating.text = itemView.context.getString(R.string.text_avg_rating, it.voteAverage.roundToInt())
+        itemView.textReleaseDate.text = itemView.context.getString(R.string.text_release_date, it.releaseDate)
     }
 
     private fun initImages(it: MoviesResponse.Result) {

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.ui.movies.MoviesFragment
@@ -11,7 +12,7 @@ import com.geniusforapp.movies.ui.movies.MoviesFragment
 
 import java.util.ArrayList
 
-class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
 
     companion object {
@@ -44,10 +45,6 @@ class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentPage
         }
     }
 
-
-    override fun getItemPosition(`object`: Any): Int {
-        return PagerAdapter.POSITION_NONE
-    }
 
 
 }

@@ -20,6 +20,7 @@ class HomeActivity : BaseActivity() {
 
         with(homeViewPager) {
             adapter = HomePagerAdapter(this@HomeActivity, supportFragmentManager)
+            offscreenPageLimit = 4
         }
 
         with(tabsHome) {

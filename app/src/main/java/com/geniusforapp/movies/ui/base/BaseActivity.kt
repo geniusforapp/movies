@@ -1,9 +1,7 @@
 package com.geniusforapp.movies.ui.base
 
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.LayoutRes
-import androidx.annotation.StringRes
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -18,11 +16,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
         super.setContentView(layoutResID)
         bindViews()
     }
-
-    fun setContentViewWithoutInjections(@LayoutRes layoutResID: Int) {
-        super.setContentView(layoutResID)
-    }
-
 
     private fun bindViews() {
         setupToolBar()

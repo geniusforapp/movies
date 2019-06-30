@@ -2,7 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+
+androidExtensions {
+    experimental = true
+}
+
 apply plugin: 'checkstyle'
+
+
 android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
@@ -14,6 +21,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
+
     }
     buildTypes {
         release {
@@ -35,8 +43,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -57,7 +65,6 @@ dependencies {
 
     // Image Loader Library
     implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'jp.wasabeef:glide-transformations:4.0.1'
 
     // Logger Library
     implementation 'com.orhanobut:logger:2.2.0'
@@ -83,7 +90,4 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.0.0"
 
 
-}
-repositories {
-    mavenCentral()
 }

@@ -1,6 +1,7 @@
 package com.geniusforapp.movies.ui.movies.vm
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
@@ -15,6 +16,10 @@ class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: M
 
     private var movies: LiveData<PagedList<MoviesResponse.Result>>? = null
 
+
+    private var loaderLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    private var errorLiveData: MutableLiveData<Throwable> = MutableLiveData()
+
     private var config: PagedList.Config = PagedList.Config.Builder()
             .setPageSize(10)
             .setInitialLoadSizeHint(10)
@@ -26,7 +31,17 @@ class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: M
         if (movies != null) {
             return movies as LiveData<PagedList<MoviesResponse.Result>>
         }
-        return LivePagedListBuilder(moviesDataSourceFactory.apply { this.type = type }, config).build()
+
+        this.movies = LivePagedListBuilder(moviesDataSourceFactory.apply {
+            this.type = type
+            this.loaderLiveData = this@MoviesViewModel.loaderLiveData
+            this.errorLiveData = this@MoviesViewModel.errorLiveData
+        }, config).build()
+        return movies as LiveData<PagedList<MoviesResponse.Result>>
     }
+
+
+    fun getLoaderObserver() = loaderLiveData
+    fun getErrorObserver() = errorLiveData
 
 }

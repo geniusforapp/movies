@@ -1,7 +1,9 @@
 package com.geniusforapp.movies.shared.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MoviesResponse(
         @SerializedName("page")
@@ -12,7 +14,8 @@ data class MoviesResponse(
         val totalPages: Int,
         @SerializedName("total_results")
         val totalResults: Int
-) {
+) : Serializable {
+
     data class Result(
             @SerializedName("adult")
             val adult: Boolean,
@@ -42,5 +45,5 @@ data class MoviesResponse(
             val voteAverage: Double,
             @SerializedName("vote_count")
             val voteCount: Int
-    )
+    ) : Serializable
 }
