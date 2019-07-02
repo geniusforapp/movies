@@ -9,6 +9,7 @@ class MoviesDataSourceFactory @Inject constructor(private val moviesDataSource: 
     lateinit var type: String
     lateinit var loaderLiveData: MutableLiveData<Boolean>
     lateinit var errorLiveData: MutableLiveData<Throwable>
+    lateinit var loadMoreLiveData: MutableLiveData<Boolean>
 
 
     override fun create(): DataSource<Int, MoviesResponse.Result> {
@@ -16,6 +17,7 @@ class MoviesDataSourceFactory @Inject constructor(private val moviesDataSource: 
             categoryType = type
             loaderLiveData = this@MoviesDataSourceFactory.loaderLiveData
             errorLiveData = this@MoviesDataSourceFactory.errorLiveData
+            loadMoreLiveData = this@MoviesDataSourceFactory.loadMoreLiveData
         }
     }
 }

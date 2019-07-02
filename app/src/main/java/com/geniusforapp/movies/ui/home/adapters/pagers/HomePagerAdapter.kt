@@ -1,16 +1,12 @@
 package com.geniusforapp.movies.ui.home.adapters.pagers
 
+
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.ui.movies.MoviesFragment
-
-
-import java.util.ArrayList
 
 class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
@@ -44,7 +40,6 @@ class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentStat
             else -> context.getString(R.string.tab_title_top_rated)
         }
     }
-
 
 
 }

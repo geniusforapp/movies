@@ -1,7 +1,10 @@
 package com.geniusforapp.movies.ui.base
 
+import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.MenuItem
 import androidx.annotation.LayoutRes
+import com.geniusforapp.movies.R
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -11,6 +14,11 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", R.style.AppTheme))
+        super.onCreate(savedInstanceState)
+    }
 
     override fun setContentView(@LayoutRes layoutResID: Int) {
         super.setContentView(layoutResID)
