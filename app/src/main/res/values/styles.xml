@@ -1,25 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
 
+    <!--    <item name="android:windowContentTransitions">true</item>
 
-        <item name="loadingProgressBarColor">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorPrimaryDark</item>
-    </style>
+        &lt;!&ndash; specify enter and exit transitions &ndash;&gt;
+        &lt;!&ndash; options are: explode, slide, fade &ndash;&gt;
+        <item name="android:windowEnterTransition">@transition/enter_animation</item>
+        <item name="android:windowExitTransition">@transition/exit_animation</item>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        &lt;!&ndash; specify shared element transitions &ndash;&gt;
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/enter_animation
+        </item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/exit_animation
+        </item>-->
     </style>
 
     <style name="AppTheme.ThemDetails">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds" tools:ignore="NewApi">true</item>
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/semiTransparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -28,11 +33,14 @@
         <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
 
-    <style name="TextAppearance.AppCompat.Small.Tabs" />
+    <style name="TextAppearance.AppCompat.Small.Tabs">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 
 
 </resources>

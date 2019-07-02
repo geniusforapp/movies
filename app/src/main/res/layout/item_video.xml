@@ -15,16 +15,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:adjustViewBounds="true"
-        android:maxHeight="80dp"
         android:maxWidth="80dp"
-        android:minHeight="80dp"
+        android:maxHeight="80dp"
         android:minWidth="80dp"
+        android:minHeight="80dp"
         android:scaleType="fitXY" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:tint="@color/md_white_1000"
+        android:tint="@android:color/white"
         app:srcCompat="@drawable/ic_play_circle_outline_black_24dp" />
 </FrameLayout>

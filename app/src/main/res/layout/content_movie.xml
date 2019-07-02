@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/details_text_container"
@@ -7,131 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.geniusforapp.movies.ui.activites.MovieActivity"
+    tools:context="com.geniusforapp.movies.ui.details.movie.MovieActivity"
     tools:showIn="@layout/activity_movie">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/popularity"
-                    style="@style/Base.TextAppearance.AppCompat.Body2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:drawableTint="@color/colorAccent"
-                    android:drawableTop="@drawable/ic_favorites"
-                    android:gravity="center"
-                    android:text="Popularity (%number)"
-                    android:textColor="@color/md_white_1000" />
-
-                <TextView
-                    android:id="@+id/budget"
-                    style="@style/Base.TextAppearance.AppCompat.Body2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_dollar_symbol"
-                    android:gravity="center"
-                    android:text="Budget (%number)"
-                    android:textColor="@color/md_white_1000" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/colorPrimaryDark" />
-
-
-        <TextView
-            android:id="@+id/details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="@color/md_white_1000" />
-
-
-        <TextView
-            android:id="@+id/genres"
-            style="@style/Base.TextAppearance.AppCompat.Body2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Genres"
-            android:textColor="@color/md_white_1000" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list_genres"
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
-
-        <com.vlonjatg.progressactivity.ProgressLinearLayout
-            android:id="@+id/similar_progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Similar Movies"
-                android:textColor="@color/md_white_1000" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_similar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.vlonjatg.progressactivity.ProgressLinearLayout>
-
-        <com.vlonjatg.progressactivity.ProgressLinearLayout
-            android:id="@+id/trials_progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Trials"
-                android:textColor="@color/md_white_1000" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/list_trials"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.vlonjatg.progressactivity.ProgressLinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="120dp" />
-    </LinearLayout>
-
-
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
