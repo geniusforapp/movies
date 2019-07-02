@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-@Singleton
+
 class GetMoviesByTypeUseCase @Inject constructor(private val moviesRepository: MoviesRepository, private val schedulerProvider: SchedulerProvider) {
 
     fun getMovies(type: String, page: Int): Single<MoviesResponse> =

@@ -18,10 +18,13 @@
     <string name="text_release_date">Release date %s</string>
     <string name="transition_backdrop">transition_backdrop</string>
     <string name="transition_poster">transition_poster</string>
-    <string name="transition_title">transtion_title</string>
-    <string name="transition_description">transtion_description</string>
+    <string name="transition_title">transition_title</string>
+    <string name="transition_description">transition_description</string>
     <string name="transition_rating">transition_rating</string>
     <string name="transition_avg_rating">transition_avg_rating</string>
     <string name="transition_release_date">transition_release_date</string>
+    <string name="text_genres">Genres: %s</string>
+    <string name="textTrailers">Trailers</string>
+    <string name="text_related_movies">Related movies</string>
 
 </resources>

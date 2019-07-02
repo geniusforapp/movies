@@ -5,12 +5,11 @@
     android:layout_height="wrap_content"
     android:theme="@style/AppTheme.AppBarOverlay">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Toolbar.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:layout_scrollFlags="enterAlways|scroll"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 </com.google.android.material.appbar.AppBarLayout>
