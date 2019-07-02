@@ -3,8 +3,6 @@ package com.geniusforapp.movies.ui.details.movie.adapters.holders
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MovieVideos
@@ -27,7 +25,6 @@ class VideosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 .load("https://img.youtube.com/vi/${movieVideos.key}/maxresdefault.jpg")
                 .apply(RequestOptions()
                         .placeholder(R.drawable.bg_placeholder)
-                        .error(R.drawable.bg_placeholder)
-                        .transform(CircleCrop(), CenterCrop())).into(itemView.imageVideo)
+                        .error(R.drawable.bg_placeholder)).into(itemView.imageVideo)
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="?colorPrimaryDark"
+    android:background="?colorPrimary"
     tools:context="com.geniusforapp.movies.ui.details.movie.MovieActivity">
 
     <include layout="@layout/layout_toolbar" />

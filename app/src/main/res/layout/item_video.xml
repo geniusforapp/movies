@@ -2,18 +2,18 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="60dp"
-    android:layout_height="60dp"
+    android:layout_width="200dp"
+    android:layout_height="120dp"
     android:layout_margin="4dp"
     android:foreground="?attr/selectableItemBackgroundBorderless"
     app:cardBackgroundColor="?colorPrimary"
-    app:cardCornerRadius="100dp"
-    app:cardElevation="5dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
 
     <ImageView
         android:id="@+id/imageVideo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />

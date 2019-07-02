@@ -2,29 +2,13 @@ package com.geniusforapp.movies.ui.details.movie
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.ColorFilter
-import android.graphics.PorterDuff
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.palette.graphics.Palette
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.target.Target
-import com.bumptech.glide.request.transition.Transition
 import com.geniusforapp.movies.R
-
 import com.geniusforapp.movies.shared.data.model.MovieDetails
 import com.geniusforapp.movies.shared.data.model.MovieVideos
 import com.geniusforapp.movies.ui.base.BaseActivity
@@ -33,12 +17,10 @@ import com.geniusforapp.movies.ui.details.movie.adapters.VideosAdapter
 import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModel
 import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModelFactory
 import com.thefinestartist.ytpa.utils.YouTubeApp
+import com.thefinestartist.ytpa.utils.YouTubeUrlParser
 import kotlinx.android.synthetic.main.content_movie.*
 import javax.inject.Inject
 import kotlin.math.roundToInt
-import com.thefinestartist.ytpa.utils.YouTubeUrlParser
-import kotlinx.android.synthetic.main.activity_movie.*
-import kotlinx.android.synthetic.main.layout_toolbar.*
 
 
 class MovieActivity : BaseActivity() {
@@ -79,7 +61,7 @@ class MovieActivity : BaseActivity() {
 
     private fun initActions() {
         videosAdapter.onVideoClicked = { YouTubeApp.startVideo(this, YouTubeUrlParser.getVideoId(YouTubeUrlParser.getVideoUrl(it.key))) }
-        similarMoviesAdapter.onItemClick = { itemView, result -> }
+        similarMoviesAdapter.onItemClick = { itemView, result -> showMovieActivity(this, result.id) }
     }
 
     private fun initList() {

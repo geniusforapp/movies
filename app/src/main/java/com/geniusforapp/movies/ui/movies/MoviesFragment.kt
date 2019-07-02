@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MoviesResponse
 import com.geniusforapp.movies.ui.base.BaseFragment
@@ -14,13 +14,11 @@ import com.geniusforapp.movies.ui.details.movie.MovieActivity
 import com.geniusforapp.movies.ui.movies.adapters.MoviesAdapter
 import com.geniusforapp.movies.ui.movies.vm.MoviesViewModel
 import com.geniusforapp.movies.ui.movies.vm.MoviesViewModelFactory
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.fragment_movies.*
-import kotlinx.android.synthetic.main.item_movie.view.*
 import javax.inject.Inject
 
 class MoviesFragment : BaseFragment() {
@@ -61,7 +59,7 @@ class MoviesFragment : BaseFragment() {
         with(listMovies) {
             adapter = moviesAdapter
             itemAnimator = DefaultItemAnimator()
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = GridLayoutManager(context, resources.getInteger(R.integer.number_of_rows))
         }
     }
 

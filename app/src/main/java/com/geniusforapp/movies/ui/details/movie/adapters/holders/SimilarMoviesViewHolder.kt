@@ -20,10 +20,10 @@ class SimilarMoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     }
 
     private fun initImages(result: MoviesResponse.Result) {
-        Glide.with(itemView.context).load("${itemView.context.getString(R.string.image)}${result.backdropPath}")
+        Glide.with(itemView.context).load("${itemView.context.getString(R.string.image)}${result.posterPath}")
                 .apply(RequestOptions()
                         .placeholder(R.drawable.bg_placeholder)
                         .error(R.drawable.bg_placeholder))
-                .into(itemView.imageBackdrop)
+                .into(itemView.imagePoster)
     }
 }
