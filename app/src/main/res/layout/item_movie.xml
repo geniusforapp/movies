@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     app:cardBackgroundColor="?colorPrimaryDark"
     app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,44 +23,28 @@
             android:minHeight="200dp"
             android:scaleType="centerCrop"
             android:transitionName="@string/transition_backdrop"
-            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintDimensionRatio="10:4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-
-        <ImageView
-            android:id="@+id/imagePoster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="16dp"
-            android:adjustViewBounds="true"
-            android:elevation="16dp"
-            android:minWidth="100dp"
-            android:minHeight="200dp"
-            android:transitionName="@string/transition_poster"
-            app:layout_constraintBottom_toBottomOf="@id/imageBackdrop"
-            app:layout_constraintStart_toStartOf="@id/imageBackdrop"
-            app:layout_constraintTop_toBottomOf="@id/imageBackdrop"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/backgrounds/scenic" />
 
 
         <TextView
             android:id="@+id/textTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:fontFamily="@font/roboto_medium"
-            android:maxLines="2"
+            android:maxLines="1"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="22sp"
             android:transitionName="@string/transition_title"
-            app:layout_constraintStart_toStartOf="@id/imagePoster"
-            app:layout_constraintTop_toBottomOf="@id/imagePoster"
-            tools:text="@tools:sample/full_names" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageBackdrop"
+            tools:text="@sample/movies.json/data/title" />
 
         <TextView
             android:id="@+id/textDescription"
@@ -73,11 +58,10 @@
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="15sp"
             android:transitionName="@string/transition_description"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textTitle"
             app:layout_constraintTop_toBottomOf="@id/textTitle"
-            tools:text="@tools:sample/lorem/random" />
+            tools:text="@sample/movies.json/data/description" />
 
 
         <androidx.appcompat.widget.AppCompatRatingBar
@@ -85,37 +69,37 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="16dp"
             android:clickable="false"
             android:numStars="10"
             android:transitionName="@string/transition_rating"
-            app:layout_constraintStart_toEndOf="@id/imagePoster"
-            app:layout_constraintTop_toBottomOf="@id/textAvgRating" />
+            app:layout_constraintStart_toStartOf="@id/textDescription"
+            app:layout_constraintTop_toBottomOf="@id/textAvgRating"
+            tools:rating="@sample/movies.json/data/rating" />
 
         <TextView
             android:id="@+id/textAvgRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="?android:attr/textColorSecondary"
             android:transitionName="@string/transition_avg_rating"
             app:layout_constraintStart_toStartOf="@id/ratingBar"
-            app:layout_constraintTop_toBottomOf="@id/imageBackdrop"
-            tools:text="@string/text_avg_rating" />
+            app:layout_constraintTop_toBottomOf="@id/textDescription"
+            tools:text="@sample/movies.json/data/rating" />
 
         <TextView
             android:id="@+id/textReleaseDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="?android:attr/textColorSecondary"
             android:transitionName="@string/transition_release_date"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/ratingBar"
             app:layout_constraintTop_toBottomOf="@id/ratingBar"
-            tools:text="@string/text_release_date" />
+            tools:text="@sample/movies.json/data/date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

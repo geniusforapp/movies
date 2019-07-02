@@ -15,6 +15,7 @@ class MoviesDataSource @Inject constructor(private val compositeDisposable: Comp
 
     lateinit var loaderLiveData: MutableLiveData<Boolean>
     lateinit var errorLiveData: MutableLiveData<Throwable>
+    lateinit var loadMoreLiveData: MutableLiveData<Boolean>
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<MoviesResponse.Result>) {
         loaderLiveData.postValue(true)
@@ -27,12 +28,12 @@ class MoviesDataSource @Inject constructor(private val compositeDisposable: Comp
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<MoviesResponse.Result>) {
-        loaderLiveData.postValue(true)
+        loadMoreLiveData.postValue(true)
         compositeDisposable.add(getMoviesByTypeUseCase
                 .getMovies(categoryType, params.key)
                 .subscribe({
                     currentPage += 1
-                    loaderLiveData.postValue(false)
+                    loadMoreLiveData.postValue(false)
                     callback.onResult(it.results)
                 }, { errorLiveData.postValue(it) }))
     }
@@ -40,6 +41,7 @@ class MoviesDataSource @Inject constructor(private val compositeDisposable: Comp
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<MoviesResponse.Result>) {
 
     }
+
 
     override fun getKey(item: MoviesResponse.Result): Int = currentPage
 

@@ -18,10 +18,12 @@ class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: M
 
     private var loaderLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private var errorLiveData: MutableLiveData<Throwable> = MutableLiveData()
+    private var loadMoreLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     private var config: PagedList.Config = PagedList.Config.Builder()
             .setPageSize(10)
             .setInitialLoadSizeHint(10)
+            .setPrefetchDistance(10)
             .setEnablePlaceholders(true)
             .build()
 
@@ -35,6 +37,7 @@ class MoviesViewModel @Inject constructor(private val moviesDataSourceFactory: M
             this.type = type
             this.loaderLiveData = this@MoviesViewModel.loaderLiveData
             this.errorLiveData = this@MoviesViewModel.errorLiveData
+            this.loadMoreLiveData = this@MoviesViewModel.loadMoreLiveData
         }, config).build()
         return movies as LiveData<PagedList<MoviesResponse.Result>>
     }

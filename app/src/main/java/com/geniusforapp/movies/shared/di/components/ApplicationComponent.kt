@@ -1,6 +1,6 @@
 package com.geniusforapp.movies.shared.di.components
 
-import com.geniusforapp.movies.applications.BaseApplication
+import com.geniusforapp.movies.application.BaseApplication
 import com.geniusforapp.movies.shared.di.modules.*
 import dagger.Component
 import dagger.android.AndroidInjectionModule

@@ -31,10 +31,10 @@ class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     private fun initImages(it: MoviesResponse.Result) {
-        Glide.with(itemView.context).load("${itemView.context.getString(R.string.image)}${it.posterPath}")
+        Glide.with(itemView.context).load("${itemView.context.getString(R.string.image)}${it.backdropPath}")
                 .apply(RequestOptions()
-                        .transforms(RoundedCorners(20))
-                        .useAnimationPool(true)).into(itemView.imagePoster)
-        Glide.with(itemView.context).load("${itemView.context.getString(R.string.image)}${it.backdropPath}").into(itemView.imageBackdrop)
+                        .placeholder(R.drawable.bg_placeholder)
+                        .error(R.drawable.bg_placeholder))
+                .into(itemView.imageBackdrop)
     }
 }

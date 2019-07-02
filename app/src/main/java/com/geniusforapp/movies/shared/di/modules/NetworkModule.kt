@@ -19,14 +19,16 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
+
     @Provides
     @Singleton
     fun provideOkHttp(headerInterceptor: HeaderInterceptor): OkHttpClient {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
         return OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
-                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .addInterceptor(httpLoggingInterceptor.apply { httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY })
                 .addInterceptor(headerInterceptor)
                 .build()
     }

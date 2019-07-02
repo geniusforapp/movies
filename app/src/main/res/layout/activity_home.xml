@@ -18,8 +18,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
+            app:contentInsetEnd="10dp"
+            app:contentInsetLeft="10dp"
+            app:contentInsetRight="10dp"
+            app:contentInsetStart="10dp"
+            app:contentInsetStartWithNavigation="10dp"
             app:layout_scrollFlags="enterAlways|scroll"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:navigationIcon="@drawable/ic_logo"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/app_name" />
 
 
         <com.google.android.material.tabs.TabLayout
@@ -41,16 +48,18 @@
 
     <include layout="@layout/content_home" />
 
-    <com.arlib.floatingsearchview.FloatingSearchView
-        android:id="@+id/floatingSearchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="10dp"
-        app:floatingSearch_backgroundColor="?colorPrimaryDark"
-        app:floatingSearch_menu="@menu/menu_home"
-        app:floatingSearch_searchHint="@string/app_name"
-        app:layout_behavior=".ui.views.SearchBehavior" />
+    <!-- <com.arlib.floatingsearchview.FloatingSearchView
+         android:id="@+id/floatingSearchView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:paddingStart="10dp"
+         android:paddingTop="5dp"
+         android:paddingEnd="10dp"
+         app:floatingSearch_backgroundColor="?colorPrimaryDark"
+         app:floatingSearch_leftActionColor="?colorAccent"
+         app:floatingSearch_leftActionMode="showSearch"
+         app:floatingSearch_menu="@menu/menu_home"
+         app:floatingSearch_searchHint="@string/app_name"
+         app:layout_behavior=".ui.views.SearchBehavior" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

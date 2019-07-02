@@ -2,6 +2,11 @@
 <resources>
     <color name="colorPrimary">#232323</color>
     <color name="colorPrimaryDark">#181818</color>
-    <color name="colorAccent">#EA4438</color>
-    <color name="semiTransparent">#23000000</color>
+    <color name="colorAccent">#01d277</color>
+
+
+    <color name="colorPrimaryLightTheme">#ffffff</color>
+    <color name="colorPrimaryDarkLightTheme">#F0F0F0</color>
+
+
 </resources>
