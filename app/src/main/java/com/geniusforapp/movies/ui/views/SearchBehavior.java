@@ -3,17 +3,17 @@ package com.geniusforapp.movies.ui.views;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Build;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.ViewCompat;
+
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.google.android.material.appbar.AppBarLayout;
 
 
-// https://lab.getbase.com/nested-scrolling-with-coordinatorlayout-on-android/
 public class SearchBehavior extends CoordinatorLayout.Behavior<FloatingSearchView> {
 
     private AppBarLayout mAppBarLayout;
@@ -37,12 +37,7 @@ public class SearchBehavior extends CoordinatorLayout.Behavior<FloatingSearchVie
             mAppBarLayout = (AppBarLayout) dependency;
             CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                /*StateListAnimator stateListAnimator = new StateListAnimator();
-                stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(dependency, "elevation", 4));
-                mAppBarLayout.setStateListAnimator(stateListAnimator);*/
-                // A bug that makes the floating search view disappear
                 mAppBarLayout.setStateListAnimator(null);
-                // TODO no shadow
             }
             mAppBarLayoutBehavior = (AppBarLayout.Behavior) params.getBehavior();
             return true;
@@ -52,13 +47,6 @@ public class SearchBehavior extends CoordinatorLayout.Behavior<FloatingSearchVie
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, FloatingSearchView child, View dependency) {
-        /*if (needsToAdjustSearchBar()) {
-            float offset = getMinExpandHeight() + appBarBehavior.getTopAndBottomOffset();
-            child.setY(offset);
-            return true;
-        }
-        return super.onDependentViewChanged(parent, child, dependency);*/
-        // boolean returnValue = super.onDependentViewChanged(parent, FloatingSearchView, appbarLayout);
         if (dependency instanceof AppBarLayout) {
             mFloatingSearchView.setTranslationY(dependency.getY());
             return true;

@@ -3,10 +3,10 @@ This is a simple application using <a harf="https://www.themoviedb.org">TheMovie
 
 
 
-<img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image1.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image2.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image3.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/movies/master/image4.png" width="23%"/></img>
+<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image1.png" width="23%"/></img>
+<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image2.png" width="23%"/></img>
+<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image3.png" width="23%"/></img>
+<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image4.png" width="23%"/></img>
 
 ## Library used in this project
 

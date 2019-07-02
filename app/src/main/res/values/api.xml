@@ -2,9 +2,9 @@
 <resources>
 
 
-
-    <string name="base_url">https://api.themoviedb.org/3/movie/</string>
     <string name="image">https://image.tmdb.org/t/p/w500</string>
+
+
     <string name="key_now_playing">now_playing</string>
     <string name="key_popular">popular</string>
     <string name="key_latest">latest</string>
@@ -13,9 +13,6 @@
     <string name="key_similar">similar</string>
 
     <string name="parameter_api_key">api_key</string>
-
-
-    <!-- TODO : Youtube Api -->
 
 
 </resources>
