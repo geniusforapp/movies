@@ -38,8 +38,6 @@
             app:tabGravity="center"
             app:tabIndicatorColor="?colorAccent"
             app:tabIndicatorFullWidth="false"
-            app:tabMode="fixed"
-            app:tabPaddingStart="16dp"
             app:tabSelectedTextColor="?colorAccent"
             app:tabTextAppearance="@style/TextAppearance.AppCompat.Small.Tabs"
             app:tabTextColor="?android:attr/textColorSecondary" />
