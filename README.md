@@ -1,10 +1,10 @@
 <img src="/images/logo.svg" align="right" width="10%" />
 
-# Movies [!MovieDb](https://www.themoviedb.org)
+# Movies [TheMovieDB](https://www.themoviedb.org)
 > This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
-
-
+Screen shots
+-----------
 
 <img src="/images/image1.png" width="23%"/></img>
 <img src="/images/image2.png" width="23%"/></img>
