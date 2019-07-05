@@ -1,60 +1,12 @@
 # Movies
+
 This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
 
-
-<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image1.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image2.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image3.png" width="23%"/></img>
-<img src="https://raw.githubusercontent.com/geniusforapp/detailsMovies/master/image4.png" width="23%"/></img>
-
-## Library used in this project
-
-#### Android support library
-```
-
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:cardview-v7:25.3.1'
-```
-
-#### Adapter and list animation and material design helper
-```
-    compile('com.mikepenz:fastadapter:2.5.2@aar') {
-        transitive = true
-    }
-    compile 'com.mikepenz:fastadapter-commons:2.5.2@aar'
-    compile 'com.mikepenz:fastadapter-extensions:2.5.2@aar'
-    compile "com.mikepenz:itemanimators:0.5.0@aar"
-    compile 'com.mikepenz:materialize:1.0.1@aar'
-```
-
-#### Image Loader Library
-```
-compile 'com.github.bumptech.glide:glide:3.7.0'
-```
-#### Communication library
-```
-compile 'com.amitshekhar.android:android-networking:1.0.0'
-```
-#### State Library to show progress or content or error
-```
-compile 'com.github.vlonjatg:progress-activity:v2.0.3'
-```
-#### Plain MVP
-```
-compile 'com.hannesdorfmann.mosby3:mvp:3.0.3'
-```
-#### Logger Library
-```
-compile 'com.orhanobut:logger:1.15'
-```
-### Views Injector
-```
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-```
+<img src="../images/image1.png" width="23%"/></img>
+<img src="../images/image2.png" width="23%"/></img>
+<img src="../images/image3.png" width="23%"/></img>
+<img src="../images/image4.png" width="23%"/></img>
 
 
 Copyright and Licensing
