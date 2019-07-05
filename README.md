@@ -1,6 +1,6 @@
 # Movies
 
-<img src"/images/logo.svg"/>
+<img src="/images/logo.svg" width="23%"/></img>
 
 This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
