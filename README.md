@@ -1,6 +1,6 @@
-<img src="/images/logo.svg" align="right" />
+<img src="/images/logo.svg" align="right" width="10%" />
 
-# Movies [![MovieDb]](https://www.themoviedb.org)
+# Movies [!MovieDb](https://www.themoviedb.org)
 > This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
 
