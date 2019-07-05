@@ -1,5 +1,7 @@
 # Movies
 
+<img src"/images/logo.svg"/>
+
 This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
 
