@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
 
+    private var isBackArrowEnabled: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(PreferenceManager.getDefaultSharedPreferences(this).getInt("theme", R.style.AppTheme))
@@ -36,14 +37,17 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     }
 
     fun showBack() {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        isBackArrowEnabled = true
+        supportActionBar?.setDisplayHomeAsUpEnabled(isBackArrowEnabled)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // Respond to the action bar's Up/Home button
             android.R.id.home -> {
-                onBackPressed()
+                if (isBackArrowEnabled) {
+                    onBackPressed()
+                }
                 return true
             }
         }

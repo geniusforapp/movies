@@ -12,10 +12,11 @@ class HomePagerAdapter(val context: Context, fm: FragmentManager) : FragmentStat
 
 
     companion object {
-        private const val ONE = 0
-        private const val TWO = 1
-        private const val THREE = 2
-        private const val NUMBER_OF_ITEMS = 4
+        const val ONE = 0
+        const val TWO = 1
+        const val THREE = 2
+        const val FOUR = 3
+        const val NUMBER_OF_ITEMS = 4
     }
 
     override fun getItem(position: Int): Fragment? {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/categories"
+        android:checkableBehavior="single"
+        android:menuCategory="alternative"
+        android:orderInCategory="100">
+        <item
+            android:id="@+id/actionNowPlaying"
+            android:title="@string/tab_title_now_playing" />
+        <item
+            android:id="@+id/actionPopular"
+            android:title="@string/tab_title_popular" />
+        <item
+            android:id="@+id/actionUpComing"
+            android:title="@string/tab_title_up_coming" />
+        <item
+            android:id="@+id/actionTopRated"
+            android:title="@string/tab_title_top_rated" />
+    </group>
+
+
+</menu>

@@ -2,6 +2,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_height">300dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="side_menu_width">300</dimen>
     <bool name="isTablet">false</bool>
     <bool name="isLand">false</bool>
     <integer name="number_of_rows">1</integer>

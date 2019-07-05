@@ -18,6 +18,7 @@ import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModel
 import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModelFactory
 import com.thefinestartist.ytpa.utils.YouTubeApp
 import com.thefinestartist.ytpa.utils.YouTubeUrlParser
+import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.content_movie.*
 import javax.inject.Inject
 import kotlin.math.roundToInt

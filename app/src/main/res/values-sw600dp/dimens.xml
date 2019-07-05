@@ -4,4 +4,5 @@
     <bool name="isTablet">true</bool>
     <bool name="isLand">false</bool>
     <integer name="number_of_rows">2</integer>
+    <dimen name="side_menu_width">300</dimen>
 </resources>

@@ -26,5 +26,8 @@
     <string name="text_genres">Genres: %s</string>
     <string name="textTrailers">Trailers</string>
     <string name="text_related_movies">Related movies</string>
+    <string name="text_open_drawer">OpenDrawer</string>
+    <string name="text_close_drawer">Close Drawer</string>
+    <string name="action_categories">Categories</string>
 
 </resources>
