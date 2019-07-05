@@ -3,10 +3,10 @@
 This is a simple application using <a harf="https://www.themoviedb.org">TheMovieDb</a> 
 
 
-<img src="../images/image1.png" width="23%"/></img>
-<img src="../images/image2.png" width="23%"/></img>
-<img src="../images/image3.png" width="23%"/></img>
-<img src="../images/image4.png" width="23%"/></img>
+<img src="/images/image1.png" width="23%"/></img>
+<img src="/images/image2.png" width="23%"/></img>
+<img src="/images/image3.png" width="23%"/></img>
+<img src="/images/image4.png" width="23%"/></img>
 
 
 Copyright and Licensing
