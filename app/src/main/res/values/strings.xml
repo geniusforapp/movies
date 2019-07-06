@@ -29,5 +29,6 @@
     <string name="text_open_drawer">OpenDrawer</string>
     <string name="text_close_drawer">Close Drawer</string>
     <string name="action_categories">Categories</string>
+    <string name="text_production_companies">Production Comapnies</string>
 
 </resources>

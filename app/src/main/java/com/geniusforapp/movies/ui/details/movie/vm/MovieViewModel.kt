@@ -24,9 +24,6 @@ class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDet
     private var loadingDetailsLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private var movieVideosLiveData: LiveData<MovieVideos>? = null
 
-    fun getLoaderObserver() = loaderLiveData
-    fun getErrorObserver() = errorLiveData
-
 
     fun getLoaderLiveData() = loadingDetailsLiveData
     fun getErrorLiveData() = movieDetailsError

@@ -3,6 +3,7 @@ package com.geniusforapp.movies.ui.details.movie
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MovieDetails
 import com.geniusforapp.movies.shared.data.model.MovieVideos
 import com.geniusforapp.movies.ui.base.BaseActivity
+import com.geniusforapp.movies.ui.details.movie.adapters.ProductionCompaniesAdapter
 import com.geniusforapp.movies.ui.details.movie.adapters.SimilarMoviesAdapter
 import com.geniusforapp.movies.ui.details.movie.adapters.VideosAdapter
 import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModel
@@ -35,6 +37,9 @@ class MovieActivity : BaseActivity() {
 
     @Inject
     lateinit var similarMoviesAdapter: SimilarMoviesAdapter
+
+    @Inject
+    lateinit var productionCompaniesAdapter: ProductionCompaniesAdapter
 
     private val movieViewModel: MovieViewModel by lazy { ViewModelProviders.of(this, movieViewModelFactory)[MovieViewModel::class.java] }
 
@@ -62,12 +67,13 @@ class MovieActivity : BaseActivity() {
 
     private fun initActions() {
         videosAdapter.onVideoClicked = { YouTubeApp.startVideo(this, YouTubeUrlParser.getVideoId(YouTubeUrlParser.getVideoUrl(it.key))) }
-        similarMoviesAdapter.onItemClick = { itemView, result -> showMovieActivity(this, result.id) }
+        similarMoviesAdapter.onItemClick = { _, result -> showMovieActivity(this, result.id) }
     }
 
     private fun initList() {
         with(listVideos) { adapter = videosAdapter }
         with(listRelatedMovies) { adapter = similarMoviesAdapter }
+        with(listProductionCompanies) { adapter = productionCompaniesAdapter }
     }
 
     private fun getMovieDetails() {
@@ -75,6 +81,14 @@ class MovieActivity : BaseActivity() {
         movieViewModel.getMovieVideos().observe(this, getVideos())
         movieViewModel.getSimilarMovies().observe(this, Observer { similarMoviesAdapter.submitList(it) })
         movieViewModel.getLoaderLiveData().observe(this, Observer { if (it) progressBar.show() else progressBar.hide() })
+        movieViewModel.getErrorLiveData().observe(this, Observer { showError(it) })
+    }
+
+    private fun showError(it: Throwable?) {
+        AlertDialog.Builder(this)
+                .setIcon(R.drawable.ic_logo)
+                .setTitle(android.R.string.dialog_alert_title)
+                .setMessage(it?.message).show()
     }
 
     private fun getVideos(): Observer<MovieVideos> {
@@ -90,7 +104,12 @@ class MovieActivity : BaseActivity() {
             handleTextData(it)
             handleImages(it)
             handleGenres(it)
+            handleProductionCompanies(it)
         }
+    }
+
+    private fun handleProductionCompanies(details: MovieDetails) {
+        productionCompaniesAdapter.submitList(details.productionCompanies.filter { it.logoPath != null })
     }
 
     private fun handleGenres(details: MovieDetails) {
