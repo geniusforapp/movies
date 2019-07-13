@@ -3,26 +3,19 @@ package com.geniusforapp.movies.ui.details.movie.vm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
 import com.geniusforapp.movies.shared.data.model.MovieDetails
-import com.geniusforapp.movies.shared.data.model.MovieVideos
-import com.geniusforapp.movies.shared.data.model.MoviesResponse
-import com.geniusforapp.movies.shared.domain.datasources.SimilarMoviesDataSourceFactory
 import com.geniusforapp.movies.shared.domain.usecases.GetMovieDetailsUseCase
-import com.geniusforapp.movies.shared.domain.usecases.GetMovieVideosByIdUseCase
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDetailsUseCase,
-                                 private val getMovieVideosByIdUseCase: GetMovieVideosByIdUseCase,
-                                 private var similarMoviesDataSourceFactory: SimilarMoviesDataSourceFactory,
-                                 private val compositeDisposable: CompositeDisposable) : ViewModel() {
+class MovieViewModel @Inject constructor(private val getMovieDetailsUseCase: GetMovieDetailsUseCase,
+                                         private val compositeDisposable: CompositeDisposable) : ViewModel() {
 
 
     private var movieDetailsLiveData: LiveData<MovieDetails>? = null
     private var movieDetailsError: MutableLiveData<Throwable> = MutableLiveData()
     private var loadingDetailsLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    private var movieVideosLiveData: LiveData<MovieVideos>? = null
+/*    private var movieVideosLiveData: LiveData<MovieVideos>? = null*/
 
 
     fun getLoaderLiveData() = loadingDetailsLiveData
@@ -32,21 +25,21 @@ class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDet
     var movieId: Int = 0
 
 
-    // similar live data
-    private var movies: LiveData<PagedList<MoviesResponse.Result>>? = null
+/*    // similar live data
+    private var movies: LiveData<PagedList<MoviesResponse.Result>>? = null*/
 
 
-    private var loaderLiveData: MutableLiveData<Boolean> = MutableLiveData()
+/*    private var loaderLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private var errorLiveData: MutableLiveData<Throwable> = MutableLiveData()
-    private var loadMoreLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    private var loadMoreLiveData: MutableLiveData<Boolean> = MutableLiveData()*/
 
-    private var config: PagedList.Config = PagedList.Config.Builder()
-            .setPageSize(10)
-            .setInitialLoadSizeHint(10)
-            .setPrefetchDistance(10)
-            .setEnablePlaceholders(true)
-            .build()
-
+    /* private var config: PagedList.Config = PagedList.Config.Builder()
+             .setPageSize(10)
+             .setInitialLoadSizeHint(10)
+             .setPrefetchDistance(10)
+             .setEnablePlaceholders(true)
+             .build()
+ */
 
     // movie details
     fun getMovieDetails(movieId: Int): LiveData<MovieDetails> {
@@ -63,13 +56,12 @@ class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDet
         loadingDetailsLiveData.postValue(true)
         compositeDisposable.add(getMovieDetailsUseCase
                 .getMovieDetails(movieId)
-                .doAfterSuccess { getMovieVideos() }
                 .subscribe({ handleResult(movieDetailsLiveData, it) }, { handleErrorResult(it) }))
         return movieDetailsLiveData
     }
 
 
-    fun getSimilarMovies(): LiveData<PagedList<MoviesResponse.Result>> {
+/*    fun getSimilarMovies(): LiveData<PagedList<MoviesResponse.Result>> {
         if (movies != null) {
             return movies as LiveData<PagedList<MoviesResponse.Result>>
         }
@@ -81,19 +73,19 @@ class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDet
             this.loadMoreLiveData = this@MovieViewModel.loadMoreLiveData
         }, config).build()
         return movies as LiveData<PagedList<MoviesResponse.Result>>
-    }
+    }*/
 
 
     // handle get movie videos by id
-    fun getMovieVideos(): LiveData<MovieVideos> {
+/*    fun getMovieVideos(): LiveData<MovieVideos> {
         if (movieVideosLiveData != null) {
             return movieVideosLiveData as LiveData<MovieVideos>
         }
 
         return getMovieVideosById()
-    }
+    }*/
 
-    private fun getMovieVideosById(): MutableLiveData<MovieVideos> {
+/*    private fun getMovieVideosById(): MutableLiveData<MovieVideos> {
         val movieVideos = MutableLiveData<MovieVideos>()
         compositeDisposable.add(getMovieVideosByIdUseCase.getMovieVideos(movieId)
                 .subscribe({
@@ -101,7 +93,7 @@ class MovieViewModel constructor(private val getMovieDetailsUseCase: GetMovieDet
                     movieVideosLiveData = movieVideos
                 }, { movieDetailsError.postValue(it) }))
         return movieVideos
-    }
+    }*/
 
     private fun handleErrorResult(it: Throwable?) {
         loadingDetailsLiveData.postValue(false)

@@ -1,4 +1,4 @@
-package com.geniusforapp.movies.ui.details.movie.adapters.holders
+package com.geniusforapp.movies.ui.details.videos.adapters.holders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -1,12 +1,12 @@
-package com.geniusforapp.movies.ui.details.movie.adapters
+package com.geniusforapp.movies.ui.details.videos.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MovieVideos
-import com.geniusforapp.movies.ui.details.movie.adapters.callback.VideosItemCallback
-import com.geniusforapp.movies.ui.details.movie.adapters.holders.VideosViewHolder
+import com.geniusforapp.movies.ui.details.videos.adapters.callback.VideosItemCallback
+import com.geniusforapp.movies.ui.details.videos.adapters.holders.VideosViewHolder
 import javax.inject.Inject
 
 class VideosAdapter @Inject constructor(videosDiffUtil: VideosItemCallback) : ListAdapter<MovieVideos.Result, VideosViewHolder>(videosDiffUtil) {

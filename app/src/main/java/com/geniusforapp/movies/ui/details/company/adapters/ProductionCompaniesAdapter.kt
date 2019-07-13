@@ -1,12 +1,12 @@
-package com.geniusforapp.movies.ui.details.movie.adapters
+package com.geniusforapp.movies.ui.details.company.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MovieDetails
-import com.geniusforapp.movies.ui.details.movie.adapters.callback.ProductionCompanyItemCallback
-import com.geniusforapp.movies.ui.details.movie.adapters.holders.ProductionCompanyViewHolder
+import com.geniusforapp.movies.ui.details.company.adapters.callback.ProductionCompanyItemCallback
+import com.geniusforapp.movies.ui.details.company.adapters.holders.ProductionCompanyViewHolder
 import javax.inject.Inject
 
 /**

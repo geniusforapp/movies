@@ -1,4 +1,4 @@
-package com.geniusforapp.movies.ui.details.movie.adapters.holders
+package com.geniusforapp.movies.ui.details.company.adapters.holders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +24,7 @@ class ProductionCompanyViewHolder(itemView: View) : RecyclerView.ViewHolder(item
     }
 
     private fun setData(productionCompany: MovieDetails.ProductionCompany) {
-
+        itemView.textCompanies.text = productionCompany.name
     }
 
     private fun loadImage(logo: String?) {

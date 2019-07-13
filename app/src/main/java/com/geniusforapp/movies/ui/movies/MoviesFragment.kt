@@ -3,6 +3,7 @@ package com.geniusforapp.movies.ui.movies
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -13,7 +14,6 @@ import com.geniusforapp.movies.ui.base.BaseFragment
 import com.geniusforapp.movies.ui.details.movie.MovieActivity
 import com.geniusforapp.movies.ui.movies.adapters.MoviesAdapter
 import com.geniusforapp.movies.ui.movies.vm.MoviesViewModel
-import com.geniusforapp.movies.ui.movies.vm.MoviesViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -25,7 +25,7 @@ class MoviesFragment : BaseFragment() {
 
 
     @Inject
-    lateinit var viewModelFactory: MoviesViewModelFactory
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var moviesAdapter: MoviesAdapter

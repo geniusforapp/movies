@@ -2,8 +2,8 @@ package com.geniusforapp.movies.shared.di.modules
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.Preference
 import android.preference.PreferenceManager
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geniusforapp.movies.application.BaseApplication
 import com.geniusforapp.movies.shared.rx.SchedulerProvider
@@ -45,4 +45,12 @@ class ApplicationModule {
         return PreferenceManager.getDefaultSharedPreferences(context)
     }
 
+    @Provides
+    @Singleton
+    fun providePagingConfig(): PagedList.Config = PagedList.Config.Builder()
+            .setPageSize(10)
+            .setInitialLoadSizeHint(10)
+            .setPrefetchDistance(10)
+            .setEnablePlaceholders(true)
+            .build()
 }

@@ -1,22 +1,20 @@
 package com.geniusforapp.movies.shared.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class MovieDetails(
         @SerializedName("adult")
         val adult: Boolean,
         @SerializedName("backdrop_path")
         val backdropPath: String,
-        @SerializedName("belongs_to_collection")
-        val belongsToCollection: Any?,
         @SerializedName("budget")
         val budget: Int,
         @SerializedName("genres")
         val genres: List<Genre>,
-        @SerializedName("homepage")
-        val homepage: Any?,
         @SerializedName("id")
         val id: Int,
         @SerializedName("imdb_id")
@@ -38,7 +36,7 @@ data class MovieDetails(
         @SerializedName("release_date")
         val releaseDate: String,
         @SerializedName("revenue")
-        val revenue: Int,
+        val revenue: Float,
         @SerializedName("runtime")
         val runtime: Int,
         @SerializedName("spoken_languages")
@@ -55,14 +53,17 @@ data class MovieDetails(
         val voteAverage: Double,
         @SerializedName("vote_count")
         val voteCount: Int
-) {
+) : Parcelable {
+
+    @Parcelize
     data class Genre(
             @SerializedName("id")
             val id: Int,
             @SerializedName("name")
             val name: String
-    )
+    ) : Parcelable
 
+    @Parcelize
     data class ProductionCompany(
             @SerializedName("id")
             val id: Int,
@@ -72,21 +73,23 @@ data class MovieDetails(
             val name: String,
             @SerializedName("origin_country")
             val originCountry: String
-    )
+    ) : Parcelable
 
+    @Parcelize
     data class ProductionCountry(
             @SerializedName("iso_3166_1")
             val iso31661: String,
             @SerializedName("name")
             val name: String
-    )
+    ) : Parcelable
 
+    @Parcelize
     data class SpokenLanguage(
             @SerializedName("iso_639_1")
             val iso6391: String,
             @SerializedName("name")
             val name: String
-    )
+    ) : Parcelable
 
 
     fun printGenres(): String = genres.map { it.name }.toString().replace("[", "").replace("]", "")

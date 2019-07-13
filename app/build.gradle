@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'checkstyle'
 
@@ -23,13 +23,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", "YOUTUBE_API_KEY", "\"${YOU_TUBE_API_KEY}\""
             buildConfigField "String", "MOVIE_DB_API_KEY", "\"${MOVIE_DB_API_KEY}\""
-            buildConfigField "String", "API_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_URL", "\"${MOVIE_DB_BASE_URL}\""
         }
 
         debug {
             buildConfigField "String", "YOUTUBE_API_KEY", "\"${YOU_TUBE_API_KEY}\""
             buildConfigField "String", "MOVIE_DB_API_KEY", "\"${MOVIE_DB_API_KEY}\""
-            buildConfigField "String", "API_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_URL", "\"${MOVIE_DB_BASE_URL}\""
         }
 
     }

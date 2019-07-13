@@ -1,4 +1,4 @@
-package com.geniusforapp.movies.ui.details.movie.adapters
+package com.geniusforapp.movies.ui.details.similar.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MoviesResponse
-import com.geniusforapp.movies.ui.details.movie.adapters.holders.SimilarMoviesViewHolder
+import com.geniusforapp.movies.ui.details.similar.adapters.holders.SimilarMoviesViewHolder
 import com.geniusforapp.movies.ui.movies.adapters.callback.MoviesItemCallback
 import javax.inject.Inject
 

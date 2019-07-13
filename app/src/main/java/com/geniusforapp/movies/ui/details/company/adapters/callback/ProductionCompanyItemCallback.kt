@@ -1,4 +1,4 @@
-package com.geniusforapp.movies.ui.details.movie.adapters.callback
+package com.geniusforapp.movies.ui.details.company.adapters.callback
 
 import androidx.recyclerview.widget.DiffUtil
 import com.geniusforapp.movies.shared.data.model.MovieDetails

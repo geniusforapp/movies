@@ -5,21 +5,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.geniusforapp.movies.R
 import com.geniusforapp.movies.shared.data.model.MovieDetails
-import com.geniusforapp.movies.shared.data.model.MovieVideos
 import com.geniusforapp.movies.ui.base.BaseActivity
-import com.geniusforapp.movies.ui.details.movie.adapters.ProductionCompaniesAdapter
-import com.geniusforapp.movies.ui.details.movie.adapters.SimilarMoviesAdapter
-import com.geniusforapp.movies.ui.details.movie.adapters.VideosAdapter
+import com.geniusforapp.movies.ui.details.movie.adapters.MoviePagerAdapter
 import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModel
-import com.geniusforapp.movies.ui.details.movie.vm.MovieViewModelFactory
-import com.thefinestartist.ytpa.utils.YouTubeApp
-import com.thefinestartist.ytpa.utils.YouTubeUrlParser
 import kotlinx.android.synthetic.main.activity_movie.*
 import kotlinx.android.synthetic.main.content_movie.*
 import javax.inject.Inject
@@ -27,22 +22,6 @@ import kotlin.math.roundToInt
 
 
 class MovieActivity : BaseActivity() {
-
-
-    @Inject
-    lateinit var movieViewModelFactory: MovieViewModelFactory
-
-    @Inject
-    lateinit var videosAdapter: VideosAdapter
-
-    @Inject
-    lateinit var similarMoviesAdapter: SimilarMoviesAdapter
-
-    @Inject
-    lateinit var productionCompaniesAdapter: ProductionCompaniesAdapter
-
-    private val movieViewModel: MovieViewModel by lazy { ViewModelProviders.of(this, movieViewModelFactory)[MovieViewModel::class.java] }
-
 
     companion object {
         private const val MOVIE_ID = "movieId"
@@ -56,31 +35,22 @@ class MovieActivity : BaseActivity() {
         }
     }
 
+
+    @Inject
+    lateinit var viewModeFactory: ViewModelProvider.Factory
+
+    private val movieViewModel: MovieViewModel by lazy { ViewModelProviders.of(this, viewModeFactory)[MovieViewModel::class.java] }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie)
         showBack()
-        initList()
-        initActions()
         getMovieDetails()
-    }
-
-    private fun initActions() {
-        videosAdapter.onVideoClicked = { YouTubeApp.startVideo(this, YouTubeUrlParser.getVideoId(YouTubeUrlParser.getVideoUrl(it.key))) }
-        similarMoviesAdapter.onItemClick = { _, result -> showMovieActivity(this, result.id) }
-    }
-
-    private fun initList() {
-        with(listVideos) { adapter = videosAdapter }
-        with(listRelatedMovies) { adapter = similarMoviesAdapter }
-        with(listProductionCompanies) { adapter = productionCompaniesAdapter }
     }
 
     private fun getMovieDetails() {
         movieViewModel.getMovieDetails(intent.getIntExtra(MOVIE_ID, 0)).observe(this, getDetails())
-        movieViewModel.getMovieVideos().observe(this, getVideos())
-        movieViewModel.getSimilarMovies().observe(this, Observer { similarMoviesAdapter.submitList(it) })
-        movieViewModel.getLoaderLiveData().observe(this, Observer { if (it) progressBar.show() else progressBar.hide() })
+        movieViewModel.getLoaderLiveData().observe(this, Observer { })
         movieViewModel.getErrorLiveData().observe(this, Observer { showError(it) })
     }
 
@@ -91,30 +61,21 @@ class MovieActivity : BaseActivity() {
                 .setMessage(it?.message).show()
     }
 
-    private fun getVideos(): Observer<MovieVideos> {
-        return Observer { handleVideos(it.results) }
-    }
-
-    private fun handleVideos(results: List<MovieVideos.Result>) {
-        videosAdapter.submitList(results)
-    }
-
     private fun getDetails(): Observer<MovieDetails> {
         return Observer {
             handleTextData(it)
             handleImages(it)
-            handleGenres(it)
-            handleProductionCompanies(it)
+            handlePager(it)
         }
     }
 
-    private fun handleProductionCompanies(details: MovieDetails) {
-        productionCompaniesAdapter.submitList(details.productionCompanies.filter { it.logoPath != null })
+    private fun handlePager(details: MovieDetails) {
+        val adapter = MoviePagerAdapter(this, details, supportFragmentManager)
+        movieViewPager.adapter = adapter
+        movieViewPager.offscreenPageLimit = 4
+        tabsMovie.setupWithViewPager(movieViewPager)
     }
 
-    private fun handleGenres(details: MovieDetails) {
-        textGenres.text = getString(R.string.text_genres, details.printGenres())
-    }
 
     private fun handleImages(details: MovieDetails) {
         Glide.with(this)
@@ -136,8 +97,6 @@ class MovieActivity : BaseActivity() {
 
     private fun handleTextData(details: MovieDetails) {
         title = details.title
-        textTitle.text = details.originalTitle
-        textDescription.text = details.overview
         ratingBar.rating = details.voteAverage.toFloat()
         textAvgRating.text = getString(R.string.text_avg_rating, details.voteAverage.roundToInt())
         textReleaseDate.text = getString(R.string.text_release_date, details.releaseDate)
